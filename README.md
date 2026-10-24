@@ -7,7 +7,7 @@
 [![OpenCV 5.0.0](https://img.shields.io/badge/OpenCV-5.0.0-green.svg)](https://opencv.org/)
 [![PyTorch 2.14 CPU](https://img.shields.io/badge/PyTorch-2.14%2Bcpu-red.svg)](https://pytorch.org/)
 [![AWS Free Tier](https://img.shields.io/badge/AWS-Free%20Tier-orange.svg)](https://aws.amazon.com/free/)
-[![License](https://img.shields.io/badge/Competition-OpenCV%20AI%202026-blueviolet.svg)](#)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ---
 
@@ -212,4 +212,4 @@ For competition evaluators and judges:
 
 ## License
 
-OpenCV AI Competition 2026 powered by AWS. All rights reserved.
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
