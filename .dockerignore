@@ -1,0 +1,17 @@
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.git
+.gitignore
+.env
+.env.*
+*.zip
+logs/
+.pytest_cache/
+venv/
+.venv/
+models/yolov8s.pt
+data/videos/output_*.mp4
+evidence/
+evaluation/

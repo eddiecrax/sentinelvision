@@ -1,0 +1,61 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environment
+venv/
+.venv/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment & Secrets
+.env
+.env.*
+!.env.example
+.env.local
+*.credentials
+*.key
+*.pem
+
+# Data (large files)
+data/videos/*.mp4
+data/videos/*.avi
+data/videos/*.mov
+data/datasets/
+# Models & Weights (Excluded from Git)
+*.pt
+*.onnx
+*.engine
+yolov8n.pt
+models/*.pt
+models/*.onnx
+!models/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Docker
+.docker/
+
+# Demo videos and generated video outputs
+data/videos/*
+!data/videos/.gitkeep
+
+# Keep small evaluation result JSON files tracked
+!data/evaluation/*.json

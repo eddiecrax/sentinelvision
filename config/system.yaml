@@ -1,0 +1,85 @@
+# SentinelVision System Configuration
+
+system:
+  name: SentinelVision
+  version: 0.1.0
+
+video:
+  max_width: 1280
+  max_height: 720
+  buffer_size: 1
+
+detection:
+  model: yolov8n.pt
+  confidence: 0.5
+  iou_threshold: 0.45
+  device: cpu
+  classes:
+    - person
+    - car
+    - truck
+    - bus
+    - motorcycle
+    - bicycle
+
+tracking:
+  max_age: 30          # frames before dropping a lost track
+  min_hits: 3          # minimum detections before confirming track
+  iou_threshold: 0.3
+  history_length: 60   # frames of position history to keep
+
+motion:
+  velocity_window: 5        # frames for velocity smoothing
+  trajectory_length: 30     # frames of trajectory to display
+  min_velocity: 0.5         # pixels/frame — below this = stationary
+
+prediction:
+  horizon: 2.0         # seconds ahead to predict
+  timestep: 0.1        # prediction resolution in seconds
+  min_ttc: 0.5         # minimum TTC before CRITICAL
+
+risk:
+  thresholds:
+    low: 5.0           # TTC > 5s
+    medium: 3.0        # 3s < TTC < 5s
+    high: 1.0          # 1s < TTC < 3s
+    critical: 0.5      # TTC < 1s (but above min_ttc)
+
+  weights:
+    ttc: 0.35
+    distance: 0.20
+    velocity: 0.15
+    trajectory: 0.15
+    zone: 0.10
+    persistence: 0.05
+
+  persistence_window: 3.0   # seconds risk must persist before escalation
+
+agent:
+  poll_interval: 0.1        # seconds between agent evaluations
+  escalation_delay: 2.0     # seconds at HIGH before auto-escalate
+  cooldown: 5.0             # seconds after resolution before re-alerting
+
+display:
+  show_bboxes: true
+  show_ids: true
+  show_trajectories: true
+  show_velocities: true
+  show_risk: true
+  show_fps: true
+  show_zones: true
+
+  colors:
+    person: [0, 255, 0]       # green
+    vehicle: [255, 165, 0]    # orange
+    risk_low: [0, 200, 0]     # green
+    risk_medium: [255, 255, 0] # yellow
+    risk_high: [255, 140, 0]   # orange
+    risk_critical: [255, 0, 0] # red
+    zone: [0, 150, 255]       # blue
+    trajectory: [200, 200, 200] # gray
+
+logging:
+  level: INFO
+  file: logs/sentinelvision.log
+  console: true

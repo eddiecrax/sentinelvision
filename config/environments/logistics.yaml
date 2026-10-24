@@ -1,0 +1,39 @@
+name: logistics
+description: Logistics hub / truck yard / distribution center
+
+vehicles:
+  - truck
+  - forklift
+  - van
+  - trailer
+
+restricted_zones:
+  - name: truck_lane
+    type: vehicle_only
+    description: Active truck movement corridor
+  - name: parking_bay
+    type: mixed
+    description: Vehicle parking and loading area
+  - name: pedestrian_crossing
+    type: pedestrian_only
+    description: Designated crossing point
+
+risk_modifiers:
+  base_multiplier: 1.0
+  reversing_vehicle: 1.6
+  blind_spot: 1.4
+
+speed_limits:
+  vehicle_max: 15.0   # km/h
+  forklift_max: 8.0   # km/h
+
+rules:
+  - name: truck_lane_pedestrian
+    description: Alert when pedestrian is in truck lane
+    zone: truck_lane
+    risk_boost: 0.4
+
+  - name: reversing_proximity
+    description: Alert when person is behind reversing vehicle
+    min_distance: 5.0
+    risk_boost: 0.3

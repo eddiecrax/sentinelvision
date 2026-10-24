@@ -1,0 +1,48 @@
+{
+  "family": "sentinelvision-task-arm64",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "1024",
+  "memory": "2048",
+  "executionRoleArn": "arn:aws:iam::<AWS_ACCOUNT_ID>:role/ecsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::<AWS_ACCOUNT_ID>:role/SentinelVisionTaskRole",
+  "runtimePlatform": {
+    "operatingSystemFamily": "LINUX",
+    "cpuArchitecture": "ARM64"
+  },
+  "containerDefinitions": [
+    {
+      "name": "sentinelvision",
+      "image": "<AWS_ACCOUNT_ID>.dkr.ecr.<AWS_REGION>.amazonaws.com/sentinelvision:arm64",
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 8000,
+          "hostPort": 8000,
+          "protocol": "tcp"
+        }
+      ],
+      "environment": [
+        { "name": "AWS_REGION", "value": "us-east-1" },
+        { "name": "S3_BUCKET_NAME", "value": "sentinelvision-evidence" },
+        { "name": "DYNAMODB_TABLE_NAME", "value": "SentinelVisionIncidents" },
+        { "name": "CLOUDWATCH_NAMESPACE", "value": "SentinelVision/Metrics" }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/sentinelvision",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "healthCheck": {
+        "command": ["CMD-SHELL", "curl -f http://localhost:8000/api/health || exit 1"],
+        "interval": 30,
+        "timeout": 5,
+        "retries": 3,
+        "startPeriod": 10
+      }
+    }
+  ]
+}

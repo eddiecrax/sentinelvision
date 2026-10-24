@@ -1,0 +1,20 @@
+{
+  "Config_A_YOLO_Only": {
+    "avg_ms": 100.71,
+    "p50_ms": 95.81,
+    "p95_ms": 131.43,
+    "fps": 9.9
+  },
+  "Config_B_YOLO_Tracking": {
+    "avg_ms": 111.3,
+    "p50_ms": 98.4,
+    "p95_ms": 225.43,
+    "fps": 9.0
+  },
+  "Config_C_Full_SentinelVision": {
+    "avg_ms": 105.24,
+    "p50_ms": 94.22,
+    "p95_ms": 128.4,
+    "fps": 9.5
+  }
+}

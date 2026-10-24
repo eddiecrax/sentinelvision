@@ -1,0 +1,38 @@
+name: warehouse
+description: Indoor warehouse / distribution center
+
+vehicles:
+  - forklift
+  - truck
+  - pallet_jack
+
+restricted_zones:
+  - name: loading_dock
+    type: vehicle_only
+    description: Active loading/unloading area
+  - name: pedestrian_lane
+    type: pedestrian_only
+    description: Designated walking path
+  - name: staging_area
+    type: restricted
+    description: Temporary storage area
+
+risk_modifiers:
+  base_multiplier: 1.0
+  forklift_multiplier: 1.3    # forklifts are more dangerous
+  blind_corner: 1.5
+
+speed_limits:
+  vehicle_max: 8.0    # km/h
+  forklift_max: 10.0  # km/h
+
+rules:
+  - name: forklift_pedestrian_proximity
+    description: Alert when forklift is within 3m of pedestrian
+    min_distance: 3.0
+    risk_boost: 0.2
+
+  - name: loading_dock_pedestrian
+    description: Alert when pedestrian enters loading dock during operations
+    zone: loading_dock
+    risk_boost: 0.3

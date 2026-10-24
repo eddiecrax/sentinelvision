@@ -1,0 +1,51 @@
+{
+  "sample_traces": [
+    {
+      "incident_id": "SV-0001",
+      "environment": "factory",
+      "worker_id": 17,
+      "vehicle_id": 3,
+      "timeline": [
+        {
+          "frame_id": 412,
+          "timestamp": 12.42,
+          "vision": {
+            "worker_position": [210, 120],
+            "vehicle_position": [130, 120],
+            "distance_px": 80.0,
+            "closing_speed_px_sec": 16.5,
+            "ttc_sec": 3.1
+          },
+          "decision": "MEDIUM_RISK",
+          "action": "MONITOR"
+        },
+        {
+          "frame_id": 435,
+          "timestamp": 13.20,
+          "vision": {
+            "worker_position": [180, 120],
+            "vehicle_position": [150, 120],
+            "distance_px": 30.0,
+            "closing_speed_px_sec": 21.0,
+            "ttc_sec": 1.4
+          },
+          "decision": "HIGH_RISK",
+          "action": "CREATE_INCIDENT_WARNING"
+        },
+        {
+          "frame_id": 482,
+          "timestamp": 14.80,
+          "vision": {
+            "worker_position": [180, 200],
+            "vehicle_position": [220, 120],
+            "distance_px": 90.0,
+            "trajectory_converging": false,
+            "ttc_sec": 5.8
+          },
+          "decision": "LOW_RISK",
+          "action": "RESOLVE"
+        }
+      ]
+    }
+  ]
+}

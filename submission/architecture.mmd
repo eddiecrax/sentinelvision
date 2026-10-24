@@ -1,0 +1,63 @@
+flowchart TB
+    %% SentinelVision — System Architecture & Data Flow
+
+    subgraph INGESTION ["1. Vision Ingestion & Preprocessing (OpenCV 5)"]
+        A1["Camera Source<br/>(Webcam / RTSP / MP4 File)"] -->|"cv2.VideoCapture"| A2["Adaptive Preprocessor<br/>(FastNlMeans Denoise & CLAHE Contrast)"]
+        A2 -->|"cv2.resize (INTER_AREA)"| A3["Normalized Frame Buffer<br/>(640x360 / 720x404)"]
+    end
+
+    subgraph PERCEPTION ["2. Perception & Spatial Tracking"]
+        A3 -->|"RGB Tensor"| B1["YOLOv8n Object Detector<br/>(CPU Optimized, Person/Vehicle Classes)"]
+        B1 -->|"Filtered Detections"| B2["IoU Multi-Object Tracker<br/>(Persistent Track IDs & Kalman-Free Matching)"]
+        B2 -->|"Temporal Position History"| B3["Motion History & Velocity Estimator<br/>(px/s Displacement Vector)"]
+    end
+
+    subgraph REASONING ["3. Trajectory & Multi-Factor Risk Engine"]
+        B3 -->|"Position & Velocity Pairs"| C1["Collision Analyzer<br/>(Trajectory Extrapolation & Closing Velocity)"]
+        C1 -->|"Distance / Closing Speed"| C2["Time-to-Collision (TTC) Calculator<br/>(TTC = Distance / V_closing)"]
+        C2 -->|"TTC + Trajectory Rays"| C3["Multi-Factor Risk Engine<br/>(Weighted TTC, Distance, Speed, Persistence)"]
+        C3 -->|"LOW | MEDIUM | HIGH | CRITICAL"| C4["Risk Assessment Vector"]
+    end
+
+    subgraph AGENTIC_LOOP ["4. Agentic Incident Decision & Feedback Loop (Core Differentiator)"]
+        C4 -->|"Assessments"| D1{"Sentinel Safety Agent<br/>(Autonomous Policy Decider)"}
+        D1 -->|"LOW (Normal)"| D2["Action: Continue MONITOR"]
+        D1 -->|"MEDIUM (Warning)"| D3["Action: INCREASE_MONITORING<br/>(Adjust Poll Interval)"]
+        D1 -->|"HIGH (Imminent)"| D4["Action: VISUAL_WARNING +<br/>CREATE_INCIDENT"]
+        D1 -->|"CRITICAL (Hazard)"| D5["Action: AUDIO_WARNING +<br/>ESCALATE (Supervisor Alert)"]
+
+        D4 & D5 -->|"Active Incident SV-XXXX"| D6["Incident State Manager<br/>(Tracks Age, Interventions & State)"]
+        D6 -->|"Observe Next Frames"| D7{"Condition Cleared?"}
+        D7 -->|"Yes (Diverging)"| D8["Action: RESOLVE Incident<br/>(Log Resolution Time & Cooldown)"]
+        D7 -->|"No (Converging)"| D9["Action: ESCALATE Severity<br/>(Dispatch High Priority Alert)"]
+    end
+
+    subgraph LOCAL_DELIVERY ["5. Local Edge Interface (FastAPI & OpenCV 5)"]
+        D1 & D6 -->|"HUD Overlays"| E1["OpenCV Visualizer<br/>(Trajectory Rays, Risk Badges, HUD)"]
+        A3 & E1 -->|"cv2.imencode (JPEG)"| E2["FastAPI Streaming Engine<br/>(GET /video_feed @ 80 Quality)"]
+        E2 -->|"MJPEG Stream"| E3["Web Safety Dashboard<br/>(HTML5 / Canvas / Metrics HUD)"]
+        E3 -->|"Operator Override / Ack"| D1
+    end
+
+    subgraph AWS_FREE_TIER ["6. AWS Cloud Data Tier (Verified Live on AWS Free Tier)"]
+        D4 & D8 -->|"Keyframe JPEG (boto3)"| F1[("Amazon S3<br/>sentinelvision-evidence-(redacted)<br/>[Verified Live]")]
+        D4 & D8 -->|"Audit Trace JSON (boto3)"| F1
+        D6 & D8 -->|"State Changes (boto3)"| F2[("Amazon DynamoDB<br/>SentinelVisionIncidents Table<br/>[Verified Live]")]
+        E2 -->|"FPS & Latency Telemetry (boto3)"| F3["Amazon CloudWatch<br/>Namespace: SentinelVision/Metrics<br/>[Verified Live]"]
+    end
+
+    subgraph FAULT_TOLERANCE ["7. Edge Fault Tolerance"]
+        F1 & F2 & F3 -.->|"On Cloud Disconnect"| G1["Local Disk Fallback<br/>(data/clips/snapshots/)"]
+        G1 -.->|"Zero Crash Guarantee"| D1
+    end
+
+    %% Styles
+    classDef verified fill:#2b6cb0,stroke:#2c5282,color:#ffffff,stroke-width:2px;
+    classDef agent fill:#805ad5,stroke:#553c9a,color:#ffffff,stroke-width:2px;
+    classDef alert fill:#c53030,stroke:#9b2c2c,color:#ffffff,stroke-width:2px;
+    classDef aws fill:#dd6b20,stroke:#c05621,color:#ffffff,stroke-width:2px;
+
+    class A1,A2,A3,B1,B2,B3,C1,C2,C3,C4 verified;
+    class D1,D6,D7,D8,D9 agent;
+    class D4,D5 alert;
+    class F1,F2,F3 aws;

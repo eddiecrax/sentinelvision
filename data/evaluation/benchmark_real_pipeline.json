@@ -1,0 +1,19 @@
+{
+  "video_evaluated": "data/videos/warehouse_forklift.mp4",
+  "frames_benchmarked": 150,
+  "stage_averages_ms": {
+    "video_decode": 1.09,
+    "opencv_preprocessing": 0.11,
+    "yolov8_inference": 123.1,
+    "tracking": 0.0,
+    "motion_estimation": 0.05,
+    "ttc_prediction": 0.0,
+    "risk_engine": 0.0,
+    "agent_decision": 0.0,
+    "visualization_rendering": 0.48
+  },
+  "total_pipeline_avg_ms": 124.86,
+  "total_pipeline_p50_ms": 107.04,
+  "total_pipeline_p95_ms": 244.76,
+  "end_to_end_fps": 8.0
+}

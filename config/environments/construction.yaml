@@ -1,0 +1,39 @@
+name: construction
+description: Outdoor/indoor construction site
+
+vehicles:
+  - excavator
+  - truck
+  - crane
+  - bulldozer
+
+restricted_zones:
+  - name: machinery_area
+    type: restricted
+    description: Active heavy machinery operation zone
+  - name: scaffolding
+    type: restricted
+    description: Elevated work area
+  - name: excavation
+    type: restricted
+    description: Active digging zone
+
+risk_modifiers:
+  base_multiplier: 1.2       # construction sites are inherently riskier
+  heavy_machinery: 1.5
+  excavation_zone: 1.4
+
+speed_limits:
+  vehicle_max: 15.0   # km/h
+
+rules:
+  - name: machinery_pedestrian
+    description: Alert when pedestrian enters active machinery zone
+    zone: machinery_area
+    risk_boost: 0.4
+
+  - name: excavation_proximity
+    description: Alert when anyone approaches excavation zone
+    zone: excavation
+    min_distance: 5.0
+    risk_boost: 0.3

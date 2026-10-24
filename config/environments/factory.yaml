@@ -1,0 +1,39 @@
+name: factory
+description: Indoor manufacturing/production facility
+
+vehicles:
+  - forklift
+  - agv          # automated guided vehicle
+  - conveyor
+
+restricted_zones:
+  - name: production_line
+    type: restricted
+    description: Active production/assembly line
+  - name: robot_cell
+    type: restricted
+    description: Automated robot work area
+  - name: maintenance_bay
+    type: restricted
+    description: Equipment maintenance area
+
+risk_modifiers:
+  base_multiplier: 1.1
+  robot_cell: 1.8
+  conveyor_proximity: 1.3
+
+speed_limits:
+  vehicle_max: 5.0    # km/h — slower in factory
+  agv_max: 3.0        # km/h
+
+rules:
+  - name: robot_cell_entry
+    description: Alert when person enters robot cell boundary
+    zone: robot_cell
+    risk_boost: 0.5
+
+  - name: conveyor_proximity
+    description: Alert when person too close to moving conveyor
+    zone: production_line
+    min_distance: 1.5
+    risk_boost: 0.3

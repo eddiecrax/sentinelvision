@@ -1,0 +1,12 @@
+{
+  "benchmark_timestamp": 1788421296.4867492,
+  "frames_evaluated": 100,
+  "total_evaluation_time_sec": 11.87,
+  "average_fps": 10.6,
+  "avg_detection_latency_ms": 116.31,
+  "min_detection_latency_ms": 79.83,
+  "max_detection_latency_ms": 2342.94,
+  "average_tracked_objects": 18.3,
+  "total_hazards_evaluated": 0,
+  "camera_to_action_latency_ms": 121.3
+}

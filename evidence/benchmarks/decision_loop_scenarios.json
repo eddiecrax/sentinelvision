@@ -1,0 +1,13 @@
+{
+  "average_fps": 116.2,
+  "p50_latency_ms": 8.61,
+  "p95_latency_ms": 8.65,
+  "detection_precision": 0.0,
+  "detection_recall": 1.0,
+  "tracking_accuracy": 0.985,
+  "ttc_prediction_error_sec": 0.12,
+  "false_positive_rate": 1.0,
+  "false_negative_rate": 0.0,
+  "hazard_detection_lead_time_sec": 2.45,
+  "incident_resolution_rate": 1.0
+}

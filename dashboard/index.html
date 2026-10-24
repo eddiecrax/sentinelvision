@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SentinelVision — Agentic Vision Safety Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0a0e17;
+      --panel-bg: rgba(18, 26, 43, 0.75);
+      --border-color: rgba(255, 255, 255, 0.1);
+      --text-main: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent-cyan: #38bdf8;
+      --accent-green: #22c55e;
+      --accent-yellow: #eab308;
+      --accent-red: #ef4444;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: var(--panel-bg);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-badge {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--accent-green);
+      box-shadow: 0 0 12px var(--accent-green);
+    }
+
+    h1 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: #fff;
+    }
+
+    .status-pill {
+      background: rgba(34, 197, 94, 0.15);
+      border: 1px solid var(--accent-green);
+      color: var(--accent-green);
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      font-family: var(--font-mono);
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 1.5rem;
+      padding: 1.5rem 2rem;
+      flex: 1;
+    }
+
+    .card {
+      background: var(--panel-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #000;
+      aspect-ratio: 16/9;
+    }
+
+    .video-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .stat-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-color);
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      color: var(--accent-cyan);
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+      text-transform: uppercase;
+    }
+
+    select {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-family: inherit;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .incidents-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      overflow-y: auto;
+      max-height: 400px;
+    }
+
+    .incident-item {
+      background: rgba(255, 255, 255, 0.02);
+      border-left: 4px solid var(--accent-yellow);
+      border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+    }
+
+    .incident-item.CRITICAL { border-left-color: var(--accent-red); }
+    .incident-item.HIGH { border-left-color: var(--accent-yellow); }
+    .incident-item.MEDIUM { border-left-color: var(--accent-cyan); }
+
+    .incident-header {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .incident-details {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      font-family: var(--font-mono);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo-badge"></div>
+      <h1>SENTINELVISION</h1>
+    </div>
+    <div style="display: flex; align-items: center; gap: 1rem;">
+      <label for="videoSelect" style="font-size: 0.85rem; color: var(--text-muted);">Video Feed:</label>
+      <select id="videoSelect" onchange="switchVideoSource(this.value)">
+        <option value="warehouse">Warehouse Aisle</option>
+        <option value="factory">Industrial Machinery</option>
+        <option value="pedestrian">Pedestrian Walkway</option>
+        <option value="traffic">Traffic Flow</option>
+      </select>
+
+      <label for="profileSelect" style="font-size: 0.85rem; color: var(--text-muted);">Profile:</label>
+      <select id="profileSelect" onchange="switchProfile(this.value)">
+        <option value="factory">Factory</option>
+        <option value="warehouse">Warehouse</option>
+        <option value="construction">Construction</option>
+        <option value="logistics">Logistics</option>
+      </select>
+      <div class="status-pill">● LIVE PIPELINE</div>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- Left Column: Video Feed & Performance -->
+    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+      <div class="card">
+        <div class="card-title">
+          <span>Live Perception & Prediction Feed</span>
+          <span style="font-family: var(--font-mono); color: var(--accent-green); font-size: 0.8rem;">MJPEG 30FPS</span>
+        </div>
+        <div class="video-container">
+          <img src="/video_feed" alt="SentinelVision Stream" />
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="stat-value" id="statFps">30.0</div>
+          <div class="stat-label">Pipeline FPS</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value" id="statLatency">85 ms</div>
+          <div class="stat-label">Inference Latency</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value" id="statIncidents">0</div>
+          <div class="stat-label">Total Incidents</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Incident Telemetry & Human-in-the-Loop Control -->
+    <div class="card">
+      <div class="card-title">
+        <span>Incident Audit Trail & Human Control</span>
+        <span style="font-size: 0.75rem; color: var(--accent-cyan); cursor: pointer;" onclick="fetchIncidents()">↻ Refresh</span>
+      </div>
+
+      <!-- Human Control Safeguard Banner -->
+      <div style="background: rgba(234, 179, 8, 0.1); border: 1px solid var(--accent-yellow); padding: 0.75rem; border-radius: 6px; font-size: 0.75rem; color: var(--accent-yellow); margin-bottom: 1rem;">
+        <strong>⚠️ Human Control Safeguard:</strong> SentinelVision provides AI-assisted monitoring and intervention guidance. AI recommendation ≠ physical safety certification.
+      </div>
+
+      <div class="incidents-list" id="incidentsList">
+        <div style="color: var(--text-muted); font-size: 0.85rem; text-align: center; padding: 2rem 0;">
+          No active incidents logged
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    async function fetchIncidents() {
+      try {
+        const res = await fetch('/api/incidents');
+        const incidents = await res.json();
+        document.getElementById('statIncidents').innerText = incidents.length;
+
+        const listEl = document.getElementById('incidentsList');
+        if (incidents.length === 0) {
+          listEl.innerHTML = '<div style="color: var(--text-muted); font-size: 0.85rem; text-align: center; padding: 2rem 0;">No incidents logged yet</div>';
+          return;
+        }
+
+        listEl.innerHTML = incidents.map(inc => `
+          <div class="incident-item ${inc.risk_level.toLowerCase()}">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <strong>${inc.event_id} (${inc.risk_level})</strong>
+              <span style="font-size: 0.75rem; color: var(--text-muted);">
+                ${inc.resolved ? `✓ Resolved (${inc.resolution_time}s)` : '⚠️ ACTIVE'}
+              </span>
+            </div>
+            <div style="font-size: 0.8rem; margin: 0.35rem 0;">
+              Worker #${inc.person_id} ↔ Vehicle #${inc.vehicle_id} | TTC: ${inc.ttc ? inc.ttc + 's' : 'N/A'}
+            </div>
+            ${!inc.resolved ? `
+              <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+                <button onclick="overrideIncident('${inc.event_id}', 'ACKNOWLEDGE')" style="background: rgba(34, 197, 94, 0.2); border: 1px solid var(--accent-green); color: var(--accent-green); font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; cursor: pointer;">ACKNOWLEDGE</button>
+                <button onclick="overrideIncident('${inc.event_id}', 'ESCALATE')" style="background: rgba(239, 68, 68, 0.2); border: 1px solid var(--accent-red); color: var(--accent-red); font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; cursor: pointer;">ESCALATE</button>
+                <button onclick="overrideIncident('${inc.event_id}', 'DISMISS')" style="background: rgba(148, 163, 184, 0.2); border: 1px solid var(--text-muted); color: var(--text-muted); font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; cursor: pointer;">DISMISS</button>
+              </div>
+            ` : ''}
+          </div>
+        `).reverse().join('');
+      } catch (err) {
+        console.error('Failed to fetch incidents:', err);
+      }
+    }
+
+    async function overrideIncident(eventId, action) {
+      try {
+        await fetch('/api/incident/override', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ event_id: eventId, action: action })
+        });
+        console.log(`Human Override on ${eventId}: ${action}`);
+        fetchIncidents();
+      } catch (err) {
+        console.error('Failed human override action:', err);
+      }
+    }
+
+    async function switchVideoSource(videoKey) {
+      try {
+        await fetch('/api/video_source', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ video_key: videoKey })
+        });
+        console.log('Switched video feed to:', videoKey);
+        // Force reload img element src
+        const img = document.querySelector('.video-container img');
+        img.src = '/video_feed?t=' + new Date().getTime();
+      } catch (err) {
+        console.error('Failed to switch video feed:', err);
+      }
+    }
+
+    async function switchProfile(profileName) {
+      try {
+        await fetch('/api/profile', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ profile: profileName })
+        });
+        console.log('Switched profile to:', profileName);
+      } catch (err) {
+        console.error('Failed to switch profile:', err);
+      }
+    }
+
+    // Auto-refresh incidents every 3 seconds
+    setInterval(fetchIncidents, 3000);
+    fetchIncidents();
+  </script>
+</body>
+</html>

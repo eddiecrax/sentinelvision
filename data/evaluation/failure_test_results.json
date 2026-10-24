@@ -1,0 +1,9 @@
+{
+  "F1_occlusion_grace_retained": true,
+  "F2_false_detection_suppressed": true,
+  "F3_multi_object_tracking_count": 5,
+  "F3_density_passed": true,
+  "F4_near_miss_risk_level": "LOW",
+  "F5_escalation_action": "CREATE_INCIDENT",
+  "F6_low_confidence_flagged": true
+}
