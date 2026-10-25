@@ -33,6 +33,10 @@ data/videos/*.mp4
 data/videos/*.avi
 data/videos/*.mov
 data/datasets/
+data/incidents.json
+data/clips/*.jpg
+data/clips/snapshots/
+!data/clips/.gitkeep
 # Models & Weights (Excluded from Git)
 *.pt
 *.onnx

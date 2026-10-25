@@ -38,6 +38,7 @@ video_sources = {
 }
 current_video_key = "warehouse"
 current_profile = "factory"
+global_pipeline: Optional[SentinelVisionPipeline] = None
 
 # Static dashboard files directory
 dashboard_dir = os.path.join(BASE_DIR, "dashboard")
@@ -67,7 +68,19 @@ def health_check():
 def get_incidents():
     incidents_path = os.path.join(BASE_DIR, "data", "incidents.json")
     storage = IncidentStorage(incidents_file=incidents_path)
-    return JSONResponse(content=storage.all_incidents)
+    records = list(storage.all_incidents)
+
+    if global_pipeline is not None:
+        live_dicts = [e.to_dict() for e in global_pipeline.agent.event_manager.all_events]
+        seen_ids = set()
+        merged = []
+        for item in live_dicts + records:
+            if item["event_id"] not in seen_ids:
+                seen_ids.add(item["event_id"])
+                merged.append(item)
+        return JSONResponse(content=merged)
+
+    return JSONResponse(content=records)
 
 
 @app.post("/api/incident/override")
@@ -75,6 +88,21 @@ def human_override_incident(req: IncidentOverrideRequest):
     incidents_path = os.path.join(BASE_DIR, "data", "incidents.json")
     storage = IncidentStorage(incidents_file=incidents_path)
     logger.info(f"👨‍✈️ HUMAN OVERRIDE: Event {req.event_id} -> Action {req.action}")
+
+    if global_pipeline is not None:
+        for evt in global_pipeline.agent.event_manager.all_events:
+            if evt.event_id == req.event_id:
+                if req.action == "ACKNOWLEDGE":
+                    evt.action_taken = "OPERATOR_ACKNOWLEDGED"
+                elif req.action == "ESCALATE":
+                    evt.escalated = True
+                    evt.action_taken = "OPERATOR_ESCALATED"
+                elif req.action == "DISMISS":
+                    evt.resolve(time.time())
+                    evt.action_taken = "OPERATOR_DISMISSED"
+                storage.record_incident(evt, environment=current_profile)
+                break
+
     return {"status": "success", "event_id": req.event_id, "action": req.action}
 
 
@@ -109,6 +137,7 @@ def set_video_source(req: VideoSwitchRequest):
 
 def generate_frames():
     """Video streaming generator function (MJPEG format)."""
+    global current_video_key, global_pipeline
     active_key = current_video_key
     video_path = video_sources.get(active_key, video_sources["warehouse"])
     config_path = os.path.join(BASE_DIR, "config", "system.yaml")
@@ -120,6 +149,7 @@ def generate_frames():
         show_display=False,
         profile_name=current_profile
     )
+    global_pipeline = pipeline
 
     if not source.open():
         logger.error("Failed to open video stream for web server")
@@ -154,6 +184,22 @@ def generate_frames():
             collision_risks = pipeline.collision_analyzer.analyze(tracked)
             risk_assessments = pipeline.risk_engine.evaluate(collision_risks, timestamp)
             actions = pipeline.agent.process(risk_assessments, timestamp)
+
+            # Persist significant safety incidents to storage
+            for action in actions:
+                if action.action_type.value not in ("monitor", "increase_monitoring"):
+                    evt = pipeline.agent.event_manager.get_active(action.person_id, action.vehicle_id)
+                    if not evt:
+                        for e in pipeline.agent.event_manager.all_events:
+                            if e.person_id == action.person_id and e.vehicle_id == action.vehicle_id:
+                                evt = e
+                                break
+                    if evt:
+                        pipeline.incident_storage.record_incident(
+                            event=evt,
+                            frame=frame,
+                            environment=current_profile
+                        )
 
             # Update FPS
             fps_counter += 1
