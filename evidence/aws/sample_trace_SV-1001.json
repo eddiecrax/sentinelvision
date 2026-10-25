@@ -1,0 +1,10 @@
+{
+  "event_id": "SV-1001",
+  "timestamp": 1792845692.5501113,
+  "environment": "warehouse",
+  "risk_level": "HIGH",
+  "risk_score": 0.89,
+  "ttc": 1.35,
+  "action": "CREATE_INCIDENT_WARNING",
+  "agent_decision": "Visual strobe warning activated; speed governor limit issued"
+}

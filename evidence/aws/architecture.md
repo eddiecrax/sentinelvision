@@ -57,7 +57,21 @@ Authentic live deployment screenshots captured from the AWS Management Console (
 
 ### A. Amazon S3 Incident Storage
 ![Amazon S3 Incident Trace JSON](screenshots/aws_s3_trace_console.png)
-*Figure 1: Amazon S3 Management Console displaying live incident trace `incidents/2026/10/SV-1001/trace.json` in bucket `sentinelvision-evidence-550130133606`.*
+*Figure 1: Amazon S3 Management Console displaying live incident trace `incidents/2026/10/SV-1001/trace.json` in bucket `sentinelvision-evidence-550130133606` (276.0 Bytes).*
+
+```json
+{
+  "event_id": "SV-1001",
+  "timestamp": 1792845692.5501113,
+  "environment": "warehouse",
+  "risk_level": "HIGH",
+  "risk_score": 0.89,
+  "ttc": 1.35,
+  "action": "CREATE_INCIDENT_WARNING",
+  "agent_decision": "Visual strobe warning activated; speed governor limit issued"
+}
+```
+*Listing 1: Exact payload content of `trace.json` stored in Amazon S3 for incident SV-1001.*
 
 ![Amazon S3 Incident Snapshot Keyframe](screenshots/aws_s3_snapshot_console.png)
 *Figure 2: Amazon S3 Management Console displaying uploaded JPEG snapshot `incidents/2026/10/SV-1001/snapshot.jpg`.*

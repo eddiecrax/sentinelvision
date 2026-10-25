@@ -118,6 +118,21 @@ Verified live against AWS account (`us-east-1`) on October 24, 2026:
 | **Amazon DynamoDB** | ![DynamoDB Ledger](../evidence/aws/screenshots/aws_dynamodb_items_console.png) | Table `SentinelVisionIncidents` scan displaying recorded incidents (`SV-0001`, `SV-1001`) with state resolution |
 | **Amazon CloudWatch** | ![CloudWatch Metrics](../evidence/aws/screenshots/aws_cloudwatch_metrics_console.png) | Namespace `SentinelVision/Metrics` graphing real-time `InferenceLatencyMs` and `PipelineFPS` |
 
+#### Sample S3 Audit Trace Payload (`trace.json`)
+The live file stored at `s3://sentinelvision-evidence-550130133606/incidents/2026/10/SV-1001/trace.json`:
+```json
+{
+  "event_id": "SV-1001",
+  "timestamp": 1792845692.5501113,
+  "environment": "warehouse",
+  "risk_level": "HIGH",
+  "risk_score": 0.89,
+  "ttc": 1.35,
+  "action": "CREATE_INCIDENT_WARNING",
+  "agent_decision": "Visual strobe warning activated; speed governor limit issued"
+}
+```
+
 ---
 
 ## 6. Tangible Industrial Safety & Alarm Fatigue Benchmark (`benchmark_tangible_safety.py`)
