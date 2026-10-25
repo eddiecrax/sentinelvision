@@ -15,7 +15,7 @@
 All local deployment readiness objectives have been achieved without cloud deployment, without AWS expenses, and without exhausting the user's data bundle. The Docker container builds cleanly, passes Docker's automated health checks, serves the web dashboard, and streams live MJPEG video with active YOLOv8 computer vision inference.
 
 - **Local Deployment Status**: **🟢 LOCAL VERIFIED** (Clean CPU Docker image `45f9be20827a`)
-- **Cloud Infrastructure Status**: **🟢 LIVE AWS VERIFIED ($0.00 Free Tier)** (S3 evidence snapshots, DynamoDB incidents table, CloudWatch telemetry verified live on AWS account redacted)
+- **Cloud Infrastructure Status**: **🟢 LIVE SERVERLESS AWS VERIFIED** (S3 evidence snapshots, DynamoDB incidents table, CloudWatch telemetry verified live on AWS account `550130133606`)
 
 ---
 
@@ -101,9 +101,9 @@ Executed after all modifications:
 - All 7 local test suites pass with 100% success.
 - Core perception and agentic logic preserved intact.
 
-### 🟢 LIVE AWS DATA TIER VERIFIED ($0.00 Free Tier on AWS account redacted)
-- **Amazon S3**: Bucket `sentinelvision-evidence-(redacted)` created; live incident keyframe images and audit trace JSON objects uploaded.
-- **Amazon DynamoDB**: Table `SentinelVisionIncidents` provisioned with On-Demand billing (Free Tier); incident insertion and status updates verified.
+### 🟢 LIVE SERVERLESS AWS DATA TIER VERIFIED (AWS account `550130133606`)
+- **Amazon S3**: Bucket `sentinelvision-evidence-550130133606` created; live incident keyframe images and audit trace JSON objects uploaded.
+- **Amazon DynamoDB**: Table `SentinelVisionIncidents` provisioned with On-Demand serverless billing; incident insertion and status updates verified.
 - **Amazon CloudWatch**: Namespace `SentinelVision/Metrics` receiving live operational telemetry (`PipelineFPS`, `InferenceLatencyMs`, `HazardsDetected`, `HazardsResolved`).
 - **Resilience**: Verified edge safety loop functions 100% locally if AWS connection drops.
 
@@ -170,7 +170,7 @@ Safe Local-First Deployment Script (deploy.sh)   ✅ VERIFIED
 All 7 Automated Test Suites Passing (100%)       ✅ VERIFIED
 Documentation & Evaluation Evidence Complete     ✅ VERIFIED
 
-INTERNET / AWS FREE TIER (VERIFIED LIVE)
+INTERNET / SERVERLESS AWS CLOUD (VERIFIED LIVE)
 ─────────────────────────────────────────────────────────────
 Live S3 Bucket Creation & Incident Upload        ✅ VERIFIED (sentinelvision-evidence-redacted)
 Live DynamoDB Table Creation & Records           ✅ VERIFIED (SentinelVisionIncidents)

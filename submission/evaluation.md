@@ -14,7 +14,7 @@ To maintain complete scientific and engineering integrity, SentinelVision divide
 
 1. **Real-Video Pipeline Benchmark**: Measured on actual industrial video footage (`data/videos/warehouse_forklift.mp4`, 720x404 @ 59.9 FPS) using `cv2.TickMeter` microsecond timing.
 2. **Controlled Failure-Case Scenarios**: Synthetic and boundary stress tests designed to isolate edge-case behaviors (occlusion, high crowd density, sensor noise, sensor blackout).
-3. **Live AWS Cloud Verification**: Real API operations executed against live AWS Free Tier services (S3, DynamoDB, CloudWatch) under AWS account (redacted).
+3. **Live AWS Cloud Verification**: Real API operations executed against live serverless AWS cloud services (S3, DynamoDB On-Demand, CloudWatch) under AWS account `550130133606`.
 
 ---
 

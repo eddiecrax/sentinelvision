@@ -6,7 +6,7 @@
 [![Python 3.12](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/downloads/release/python-3120/)
 [![OpenCV 5.0.0](https://img.shields.io/badge/OpenCV-5.0.0-green.svg)](https://opencv.org/)
 [![PyTorch 2.14 CPU](https://img.shields.io/badge/PyTorch-2.14%2Bcpu-red.svg)](https://pytorch.org/)
-[![AWS Free Tier](https://img.shields.io/badge/AWS-Free%20Tier-orange.svg)](https://aws.amazon.com/free/)
+[![AWS Serverless](https://img.shields.io/badge/AWS-Serverless-orange.svg)](https://aws.amazon.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ---
@@ -25,7 +25,7 @@ $$\text{Perceive} \longrightarrow \text{Predict} \longrightarrow \text{Decide} \
 
 - **Substantive OpenCV 5 Pipeline**: Low-lux denoising (`fastNlMeansDenoisingColored`), adaptive contrast normalization (`createCLAHE` in LAB space), multi-source video capture (`cv2.VideoCapture`), dynamic vector HUD rendering (`cv2.line`, `cv2.rectangle`, `cv2.putText`), and multipart JPEG streaming (`cv2.imencode`).
 - **Autonomous Agentic Decision Loop**: 28 autonomous actions logged across a closed-loop incident cycle (`INCREASE_MONITORING` $\rightarrow$ `CREATE_INCIDENT` $\rightarrow$ `VISUAL_WARNING` $\rightarrow$ `RESOLVE`). The agent verifies whether conditions improve and automatically resolves incidents once hazards clear.
-- **AWS Free Tier Cloud Telemetry ($0.00)**: Live S3 incident keyframe snapshot and audit trace storage, DynamoDB persistent incident ledger, and CloudWatch operational metrics publishing.
+- **Serverless AWS Cloud Telemetry**: Live S3 incident keyframe snapshot and audit trace storage, DynamoDB persistent incident ledger, and CloudWatch operational metrics publishing.
 - **Zero-Downtime Edge Fault Tolerance**: Local safety loop operates with 100% autonomy and zero crashes during complete cloud network outages.
 
 ---
@@ -102,7 +102,7 @@ pip install -r requirements.txt
 # The default model is yolov8n.pt. It will auto-download on first execution, or pre-fetch with:
 python -c "from ultralytics import YOLO; YOLO('yolov8n.pt')"
 
-# 6. Configure Environment (Optional AWS Free Tier)
+# 6. Configure Environment (Optional AWS Cloud Sync)
 cp .env.example .env
 # Leave AWS keys blank to run in 100% offline local mode.
 

@@ -5,7 +5,7 @@
 **Target Architecture**: Local Edge / Clean Docker Container + AWS Cloud Telemetry Tier  
 **Evaluator Environment**: Linux (Debian x86_64), Intel Core i5-6300HQ CPU, Python 3.12.14, Conda Env `sentinelvision`  
 **Host OpenCV Version**: `5.0.0` (Verified via `cv2.__version__`)  
-**AWS Account ID**: Redacted for public release (Region: `us-east-1`, AWS Free Tier)  
+**AWS Account ID**: `550130133606` (Region: `us-east-1`, Serverless Cloud Data Tier)  
 
 ---
 
@@ -59,8 +59,8 @@ SentinelVision does not use OpenCV as an ornamental wrapper. OpenCV 5 executes t
 
 ## 3. Requirement B: AWS Cloud Telemetry & Resilience Verification
 
-### B.1 Live Free Tier Verification ($0.00 Incurred)
-On October 24, 2026, live AWS provisioning and bidirectional data transmission were verified using an IAM administrator on AWS account (redacted, Region: `us-east-1`):
+### B.1 Live Serverless AWS Cloud Verification
+On October 24, 2026, live AWS provisioning and bidirectional data transmission were verified using an IAM administrator on AWS account (`550130133606`, Region: `us-east-1`):
 
 - **Amazon S3**:
   - Target Bucket: `sentinelvision-evidence-550130133606`
@@ -69,7 +69,7 @@ On October 24, 2026, live AWS provisioning and bidirectional data transmission w
     - Audit Trail JSON: `s3://sentinelvision-evidence-550130133606/incidents/2026/10/SV-1001/trace.json` ([Console Screenshot](file:///home/crax/Music/opencv/sentinelvision/evidence/aws/screenshots/aws_s3_trace_console.png))
 - **Amazon DynamoDB**:
   - Target Table: `SentinelVisionIncidents` (Partition Key: `incident_id` [String])
-  - Billing Mode: On-Demand (`PAY_PER_REQUEST`, within Free Tier)
+  - Billing Mode: On-Demand (`PAY_PER_REQUEST` serverless billing)
   - Live Records: Logged incident `SV-1001` (HIGH risk, TTC 1.35s) and verified state update to `RESOLVED` (duration 2.8s) ([Console Screenshot](file:///home/crax/Music/opencv/sentinelvision/evidence/aws/screenshots/aws_dynamodb_items_console.png)).
 - **Amazon CloudWatch**:
   - Target Namespace: `SentinelVision/Metrics`

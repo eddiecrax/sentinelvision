@@ -50,14 +50,14 @@
 
 ---
 
-### [2:50 – 3:40] 5. Genuine AWS Cloud Evidence ($0.00 Free Tier) (50s)
-- **Visual**: Switch to AWS Management Console in browser (AWS account redacted, Region: `us-east-1`).
+### [2:50 – 3:40] 5. Genuine Serverless AWS Cloud Evidence (50s)
+- **Visual**: Switch to AWS Management Console in browser (Account: `550130133606`, Region: `us-east-1`).
 - **Actions on Screen**:
-  1. **Amazon S3**: Open bucket `sentinelvision-evidence-(redacted)`. Show the `incidents/2026/10/SV-1001/` folder containing `snapshot.jpg` and `trace.json`.
-  2. **Amazon DynamoDB**: Open table `SentinelVisionIncidents`. Click **Explore items** and show the incident row with `incident_id`, `risk_score`, `ttc`, and `resolved: true`.
+  1. **Amazon S3**: Open bucket `sentinelvision-evidence-550130133606`. Show the `incidents/2026/10/SV-1001/` folder containing `snapshot.jpg` and `trace.json`.
+  2. **Amazon DynamoDB**: Open table `SentinelVisionIncidents`. Click **Explore items** and show the incident rows (`SV-0001`, `SV-1001`) with `incident_id`, `risk_score`, `ttc`, and `resolved: true`.
   3. **Amazon CloudWatch**: Open `SentinelVision/Metrics`. Show the live telemetry metrics: `PipelineFPS`, `InferenceLatencyMs`, and `HazardsDetected`.
 - **Spoken Audio**:
-  > *"Every critical event is backed by real AWS cloud infrastructure operating under the AWS Free Tier. Here in Amazon S3, you can see the incident keyframe snapshot and the complete decision trace uploaded automatically. In Amazon DynamoDB, our persistent incident ledger records the event lifecycle and resolution timestamps. And in Amazon CloudWatch, real-time pipeline latency and hazard metrics provide centralized operational visibility across facilities."*
+  > *"Every critical event is backed by real, serverless AWS cloud infrastructure. Here in Amazon S3, you can see the incident keyframe snapshot and the complete decision trace uploaded automatically. In Amazon DynamoDB, our On-Demand incident ledger records the event lifecycle and resolution timestamps with zero idle cost. And in Amazon CloudWatch, real-time pipeline latency and hazard metrics provide centralized operational visibility across facilities."*
 
 ---
 

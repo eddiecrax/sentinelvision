@@ -6,7 +6,7 @@
 **Date**: October 24, 2026  
 **Repository**: `sentinelvision`  
 **OpenCV Version**: 5.0.0 (Python)  
-**Cloud Infrastructure**: Amazon Web Services (AWS Free Tier, Region: `us-east-1`, AWS account redacted)  
+**Cloud Infrastructure**: Amazon Web Services (Serverless Event-Driven Data Tier, Region: `us-east-1`, AWS account: `550130133606`)  
 
 ---
 
@@ -16,7 +16,7 @@ Industrial facilities, manufacturing plants, logistics hubs, and construction zo
 
 **SentinelVision** introduces an autonomous **Agentic Vision** safety system. Powered by OpenCV 5 and lightweight YOLOv8 on CPU, SentinelVision observes dynamic interactions between vehicles and pedestrians, estimates real-time relative closing velocities and Time-to-Collision (TTC), evaluates multi-factor risk, and executes an autonomous closed-loop decision workflow: **Perceive → Predict → Decide → Act → Observe → Resolve/Escalate**.
 
-The system operates locally on edge hardware with a FastAPI MJPEG streaming HUD and integrates with the AWS Cloud Data Tier (Amazon S3, Amazon DynamoDB, and Amazon CloudWatch) under the AWS Free Tier ($0.00 compute incurred). SentinelVision includes built-in fault tolerance, continuing edge safety monitoring without interruption even during complete cloud network outages.
+The system operates locally on edge hardware with a FastAPI MJPEG streaming HUD and integrates with a serverless AWS Cloud Data Tier (Amazon S3, Amazon DynamoDB, and Amazon CloudWatch) with zero idle-compute overhead. SentinelVision includes built-in fault tolerance, continuing edge safety monitoring without interruption even during complete cloud network outages.
 
 ---
 
@@ -41,7 +41,7 @@ According to OSHA and international workplace safety registries, struck-by incid
 | **Action Capability** | Passive recording or fixed unvarying siren | Autonomous tiered agentic intervention loop (28 distinct actions) |
 | **Feedback Mechanism** | None (open loop) | Closed-loop re-observation: verifies if hazard cleared or escalates |
 | **Cloud Dependency** | Tight coupling; video fails if cloud drops | Edge-first autonomy; cloud telemetry with zero-downtime offline fallback |
-| **Cloud Cost** | Expensive continuous cloud video streaming | Serverless Free Tier data tier (S3 snapshots + DynamoDB telemetry) |
+| **Cloud Cost** | Expensive continuous cloud video streaming | Serverless event-driven data tier (S3 snapshots + DynamoDB On-Demand telemetry) |
 
 ---
 
@@ -160,7 +160,7 @@ Autonomous safety systems must never be black boxes. SentinelVision provides mul
 
 ### 8. AWS Architecture & Verified Live Integrations
 
-To ensure strict cost control without incurring unpredictable charges, SentinelVision implements the AWS Cloud Data Tier under the **AWS Free Tier ($0.00)**. Live end-to-end functionality was verified on AWS account (`550130133606`, Region: `us-east-1`):
+To ensure strict cost control without incurring unpredictable charges, SentinelVision implements a cost-optimized, serverless AWS Cloud Data Tier with on-demand event ingestion. Live end-to-end functionality was verified on AWS account (`550130133606`, Region: `us-east-1`):
 
 | AWS Service | Configured Resource | Verified Functionality | Status |
 | :--- | :--- | :--- | :---: |

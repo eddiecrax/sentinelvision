@@ -57,13 +57,13 @@ python -c "from ultralytics import YOLO; YOLO('yolov8n.pt')"
 ```
 *Note: SentinelVision automatically detects model weights in either the project root (`yolov8n.pt`) or the `models/` directory (`models/yolov8n.pt`).*
 
-### Step 4: Configure Environment (Optional AWS Free Tier)
+### Step 4: Configure Environment (Optional AWS Cloud Sync)
 Copy the example environment configuration:
 ```bash
 cp .env.example .env
 ```
-- **Offline Mode (Default)**: Leave AWS credentials in `.env` blank. SentinelVision automatically falls back to local storage, logging all incident evidence snapshots to `data/clips/snapshots/` with zero cloud dependencies or charges.
-- **Live AWS Free Tier Mode**: Provide `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and `AWS_REGION` to stream operational metrics to CloudWatch, store incident audit items in DynamoDB, and upload keyframe snapshots to S3.
+- **Offline Mode (Default)**: Leave AWS credentials in `.env` blank. SentinelVision automatically falls back to local storage, logging all incident evidence snapshots to `data/clips/snapshots/` with zero cloud dependencies.
+- **Live AWS Cloud Mode**: Provide `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and `AWS_REGION` to stream operational metrics to CloudWatch, store incident audit items in DynamoDB, and upload keyframe snapshots to S3.
 
 ### Step 5: Run the Application
 Start the real-time FastAPI service and visual dashboard:
@@ -110,7 +110,7 @@ curl -s http://localhost:8000/health
 ```
 Open `http://localhost:8000/` in your web browser.
 
-### Optional: Running Docker with AWS Free Tier Credentials
+### Optional: Running Docker with Live AWS Cloud Credentials
 ```bash
 docker run -d --name sentinelvision -p 8000:8000 \
   --env-file .env \

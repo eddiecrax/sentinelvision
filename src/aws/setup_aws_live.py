@@ -1,9 +1,9 @@
 """
-SentinelVision — AWS Free Tier Live Provisioning & Verification
+SentinelVision — Serverless AWS Cloud Live Provisioning & Verification
 
 Provisions and tests:
 1. S3 Bucket: sentinelvision-evidence-<account-id>
-2. DynamoDB Table: SentinelVisionIncidents (Free Tier On-Demand)
+2. DynamoDB Table: SentinelVisionIncidents (On-Demand Serverless)
 3. CloudWatch Metrics: SentinelVision/Metrics
 """
 
@@ -29,7 +29,7 @@ from src.safety.events import SafetyEvent
 def setup_and_verify_aws():
     region = os.getenv("AWS_REGION", "us-east-1")
     logger.info("=" * 60)
-    logger.info(f"  SENTINELVISION — AWS FREE TIER LIVE PROVISIONING ({region})")
+    logger.info(f"  SENTINELVISION — SERVERLESS AWS LIVE PROVISIONING ({region})")
     logger.info("=" * 60)
 
     # 1. Verify STS Identity
@@ -76,7 +76,7 @@ def setup_and_verify_aws():
         logger.info(f"✅ DynamoDB Table '{table_name}' already exists (Status: {table.table_status}).")
     except ClientError as e:
         if e.response.get("Error", {}).get("Code") == "ResourceNotFoundException":
-            logger.info(f"Creating DynamoDB Table '{table_name}' with On-Demand billing (Free Tier)...")
+            logger.info(f"Creating DynamoDB Table '{table_name}' with On-Demand serverless billing...")
             table = dynamo_res.create_table(
                 TableName=table_name,
                 KeySchema=[{"AttributeName": "incident_id", "KeyType": "HASH"}],
@@ -160,7 +160,7 @@ def setup_and_verify_aws():
 
     # 7. Print Console Links for Screenshots
     logger.info("=" * 60)
-    logger.info("  🎉 AWS LIVE VALIDATION SUCCESSFUL! ($0.00 FREE TIER)")
+    logger.info("  🎉 AWS LIVE VALIDATION SUCCESSFUL! (SERVERLESS CLOUD TIER)")
     logger.info("=" * 60)
     logger.info(f"  Direct AWS Console URLs to capture screenshots:")
     logger.info(f"  1. S3 Bucket: https://s3.console.aws.amazon.com/s3/buckets/{bucket_name}?region={region}")

@@ -5,7 +5,7 @@
 **Submission Target**: October 26, 2026
 **Auditor**: Lead Vision, AWS & QA Engineering
 **Environment**: Debian Linux (x86_64), Intel Core i5-6300HQ CPU @ 2.30 GHz, Python 3.12.14, OpenCV `5.0.0`
-**AWS Account**: Redacted for public release (Region: `us-east-1`, AWS Free Tier)
+**AWS Account**: `550130133606` (Region: `us-east-1`, Serverless Cloud Data Tier)
 
 ---
 
@@ -15,7 +15,7 @@
 | :--- | :---: | :--- |
 | **Core OpenCV 5 Requirement** | **VERIFIED** | Deep substantive use across CLAHE contrast, denoising, video decode, HUD rendering, and multipart JPEG encoding. |
 | **Agentic Vision Special Award** | **VERIFIED** | Closed-loop feedback cycle: Perception alters downstream actions across multiple time steps; autonomous create, warn, and resolve loop verified. |
-| **AWS Cloud Data Tier** | **VERIFIED LIVE** | Live S3 bucket `sentinelvision-evidence-(redacted)`, DynamoDB table `SentinelVisionIncidents`, and CloudWatch namespace `SentinelVision/Metrics` active under Free Tier ($0.00 spent). |
+| **AWS Cloud Data Tier** | **VERIFIED LIVE** | Live S3 bucket `sentinelvision-evidence-550130133606`, DynamoDB table `SentinelVisionIncidents`, and CloudWatch namespace `SentinelVision/Metrics` active with zero idle compute cost. |
 | **Cloud Container Hosting (ECS)** | **PREPARED / DEFERRED** | Task definitions (`task-definition.json`) authored; remote compute execution intentionally deferred to avoid personal compute charges. |
 | **Edge Fault Tolerance** | **VERIFIED** | Zero crash verified when AWS network is disconnected; local snapshot fallback operates seamlessly. |
 | **Performance Traceability** | **VERIFIED** | Real-video latency (P50 93.77 ms, 10.0 FPS) strictly separated from synthetic algorithmic core latency (P50 8.7 ms). |
@@ -54,7 +54,7 @@
   - **Amazon CloudWatch**: Namespace `SentinelVision/Metrics` verified with 4 live telemetry streams (`PipelineFPS`, `InferenceLatencyMs`, `HazardsDetected`, `HazardsResolved`).
 - **Clear Architectural Boundary**:
   - The computer vision processing and web dashboard run **locally on the edge** (laptop / Docker container).
-  - The telemetry, audit trails, and keyframe archives run **on AWS Free Tier**.
+  - The telemetry, audit trails, and keyframe archives run **on a serverless AWS Cloud Data Tier**.
   - The application is **not** hosted on AWS ECS Fargate; Fargate task definitions are prepared in `deployment/aws/` for future production deployment.
 
 ### D. Performance & Metric Traceability

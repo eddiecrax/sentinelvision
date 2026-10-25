@@ -26,7 +26,7 @@
 Fill in these fields on the official competition submission portal:
 
 - **Project Title**: SentinelVision — Autonomous Industrial Hazard Perception & Agentic Incident Mitigation
-- **Tagline**: An edge-first agentic computer vision pipeline using OpenCV 5 and AWS Free Tier to proactively predict, intervene, and resolve industrial collisions in real time.
+- **Tagline**: An edge-first agentic computer vision pipeline using OpenCV 5 and serverless AWS to proactively predict, intervene, and resolve industrial collisions in real time.
 - **Special Awards Entered**:
   - ☑️ **Agentic Vision Special Award** (Multi-step autonomous perception-decision-action loop with persistent closed-loop incident resolution).
 - **Video Demo Link**: `[PASTE_YOUTUBE_OR_VIMEO_LINK_HERE]` (Must be $\le$ 5 minutes; unlisted or public).
@@ -39,7 +39,7 @@ Fill in these fields on the official competition submission portal:
 
 - [x] **No Credentials Committed**: Verified `.env` and `~/.aws/` are not committed to Git or baked into Docker layers.
 - [x] **OpenCV 5 Verified**: Confirmed substantive usage across preprocessing, capture, HUD, and streaming (`cv2.__version__ == 5.0.0`).
-- [x] **AWS Free Tier Verified**: Verified live bucket `sentinelvision-evidence-(redacted)`, table `SentinelVisionIncidents`, and CloudWatch metrics.
+- [x] **AWS Cloud Tier Verified**: Verified live bucket `sentinelvision-evidence-550130133606`, table `SentinelVisionIncidents`, and CloudWatch metrics.
 - [x] **Agentic Loop Verified**: 28 autonomous actions logged in closed-loop scenario (`tests/test_scenario.py`).
 - [x] **Failure Cases Verified**: 6/6 industrial stress tests passing (`tests/test_failures.py`).
 - [x] **Docker Image Clean**: CPU-only image `sentinelvision:latest` (ID `45f9be20827a`) verified with in-container frame inference.

@@ -39,8 +39,8 @@ flowchart TB
         E3 -->|"Operator Override / Ack"| D1
     end
 
-    subgraph AWS_FREE_TIER ["6. AWS Cloud Data Tier (Verified Live on AWS Free Tier)"]
-        D4 & D8 -->|"Keyframe JPEG (boto3)"| F1[("Amazon S3<br/>sentinelvision-evidence-(redacted)<br/>[Verified Live]")]
+    subgraph AWS_FREE_TIER ["6. Serverless AWS Cloud Data Tier (Verified Live on AWS)"]
+        D4 & D8 -->|"Keyframe JPEG (boto3)"| F1[("Amazon S3<br/>sentinelvision-evidence-550130133606<br/>[Verified Live]")]
         D4 & D8 -->|"Audit Trace JSON (boto3)"| F1
         D6 & D8 -->|"State Changes (boto3)"| F2[("Amazon DynamoDB<br/>SentinelVisionIncidents Table<br/>[Verified Live]")]
         E2 -->|"FPS & Latency Telemetry (boto3)"| F3["Amazon CloudWatch<br/>Namespace: SentinelVision/Metrics<br/>[Verified Live]"]
