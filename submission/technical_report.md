@@ -160,14 +160,20 @@ Autonomous safety systems must never be black boxes. SentinelVision provides mul
 
 ### 8. AWS Architecture & Verified Live Integrations
 
-To ensure strict cost control without incurring unpredictable charges, SentinelVision implements the AWS Cloud Data Tier under the **AWS Free Tier ($0.00)**. Live end-to-end functionality was verified on AWS account (redacted, Region: `us-east-1`):
+To ensure strict cost control without incurring unpredictable charges, SentinelVision implements the AWS Cloud Data Tier under the **AWS Free Tier ($0.00)**. Live end-to-end functionality was verified on AWS account (`550130133606`, Region: `us-east-1`):
 
 | AWS Service | Configured Resource | Verified Functionality | Status |
 | :--- | :--- | :--- | :---: |
-| **Amazon S3** | `sentinelvision-evidence-(redacted)` | Live upload of JPEG incident keyframes and JSON audit traces | **🟢 VERIFIED LIVE** |
+| **Amazon S3** | `sentinelvision-evidence-550130133606` | Live upload of JPEG incident keyframes and JSON audit traces | **🟢 VERIFIED LIVE** |
 | **Amazon DynamoDB** | `SentinelVisionIncidents` (On-Demand) | Real-time incident item creation and status updates (`ACTIVE` → `RESOLVED`) | **🟢 VERIFIED LIVE** |
 | **Amazon CloudWatch**| `SentinelVision/Metrics` | Telemetry publishing (`PipelineFPS`, `InferenceLatencyMs`, `HazardsDetected`) | **🟢 VERIFIED LIVE** |
 | **Amazon ECS / Fargate**| `sentinelvision-task` | Task definitions authored (`deployment/aws/task-definition.json`); remote compute deferred | **🟡 PREPARED** |
+
+#### Verified AWS Console Artifacts
+The live operation of all three AWS services is documented through authentic AWS Management Console artifacts:
+- **S3 Audit Trail**: Structured event folder storage under `incidents/2026/10/SV-1001/` with both `trace.json` and keyframe `snapshot.jpg` ([Evidence](file:///home/crax/Music/opencv/sentinelvision/evidence/aws/screenshots/aws_s3_snapshot_console.png)).
+- **DynamoDB State Ledger**: Table `SentinelVisionIncidents` scan capturing complete state transitions from detection to resolution ([Evidence](file:///home/crax/Music/opencv/sentinelvision/evidence/aws/screenshots/aws_dynamodb_items_console.png)).
+- **CloudWatch Telemetry**: Namespace `SentinelVision/Metrics` live tracking pipeline execution FPS, model latency, and hazard alerts ([Evidence](file:///home/crax/Music/opencv/sentinelvision/evidence/aws/screenshots/aws_cloudwatch_metrics_console.png)).
 
 #### Edge Fault Tolerance
 When simulated cloud connection drops were induced in `tests/test_aws_integration.py`, the edge vision pipeline completed all safety evaluations, logged incidents to local disk (`data/clips/snapshots/`), and maintained 100% test passing rate without raising unhandled network exceptions.

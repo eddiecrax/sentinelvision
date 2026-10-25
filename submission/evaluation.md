@@ -90,12 +90,12 @@ Verified in automated test suite `tests/test_failures.py`:
 
 ## 5. Live AWS Integration Evidence (`deployment_results.json`)
 
-Verified live against AWS account (redacted) on October 24, 2026:
+Verified live against AWS account (`us-east-1`) on October 24, 2026:
 
 ```json
 {
   "test_timestamp": "2026-10-24T12:40:53Z",
-  "s3_bucket": "sentinelvision-evidence-<AWS_ACCOUNT_ID_REDACTED>",
+  "s3_bucket": "sentinelvision-evidence-550130133606",
   "dynamodb_table": "SentinelVisionIncidents",
   "cloudwatch_namespace": "SentinelVision/Metrics",
   "test_results": {
@@ -108,6 +108,15 @@ Verified live against AWS account (redacted) on October 24, 2026:
   }
 }
 ```
+
+### Verified AWS Management Console Artifacts
+
+| AWS Component | Console Evidence Screenshot | Description |
+| :--- | :--- | :--- |
+| **Amazon S3 Trace** | ![S3 Trace](../evidence/aws/screenshots/aws_s3_trace_console.png) | Live incident trace `trace.json` stored in bucket path `incidents/2026/10/SV-1001/` |
+| **Amazon S3 Keyframe** | ![S3 Snapshot](../evidence/aws/screenshots/aws_s3_snapshot_console.png) | Uploaded JPEG hazard keyframe `snapshot.jpg` |
+| **Amazon DynamoDB** | ![DynamoDB Ledger](../evidence/aws/screenshots/aws_dynamodb_items_console.png) | Table `SentinelVisionIncidents` scan displaying recorded incidents (`SV-0001`, `SV-1001`) with state resolution |
+| **Amazon CloudWatch** | ![CloudWatch Metrics](../evidence/aws/screenshots/aws_cloudwatch_metrics_console.png) | Namespace `SentinelVision/Metrics` graphing real-time `InferenceLatencyMs` and `PipelineFPS` |
 
 ---
 

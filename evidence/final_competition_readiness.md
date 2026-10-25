@@ -63,17 +63,17 @@ SentinelVision does not use OpenCV as an ornamental wrapper. OpenCV 5 executes t
 On October 24, 2026, live AWS provisioning and bidirectional data transmission were verified using an IAM administrator on AWS account (redacted, Region: `us-east-1`):
 
 - **Amazon S3**:
-  - Target Bucket: `sentinelvision-evidence-(redacted)`
+  - Target Bucket: `sentinelvision-evidence-550130133606`
   - Uploaded Objects:
-    - Incident Keyframe: `s3://sentinelvision-evidence-(redacted)/incidents/2026/10/SV-1001/snapshot.jpg`
-    - Audit Trail JSON: `s3://sentinelvision-evidence-(redacted)/incidents/2026/10/SV-1001/trace.json`
+    - Incident Keyframe: `s3://sentinelvision-evidence-550130133606/incidents/2026/10/SV-1001/snapshot.jpg` ([Console Screenshot](file:///home/crax/Music/opencv/sentinelvision/evidence/aws/screenshots/aws_s3_snapshot_console.png))
+    - Audit Trail JSON: `s3://sentinelvision-evidence-550130133606/incidents/2026/10/SV-1001/trace.json` ([Console Screenshot](file:///home/crax/Music/opencv/sentinelvision/evidence/aws/screenshots/aws_s3_trace_console.png))
 - **Amazon DynamoDB**:
   - Target Table: `SentinelVisionIncidents` (Partition Key: `incident_id` [String])
   - Billing Mode: On-Demand (`PAY_PER_REQUEST`, within Free Tier)
-  - Live Records: Logged incident `SV-1001` (HIGH risk, TTC 1.35s) and verified state update to `RESOLVED` (duration 2.8s).
+  - Live Records: Logged incident `SV-1001` (HIGH risk, TTC 1.35s) and verified state update to `RESOLVED` (duration 2.8s) ([Console Screenshot](file:///home/crax/Music/opencv/sentinelvision/evidence/aws/screenshots/aws_dynamodb_items_console.png)).
 - **Amazon CloudWatch**:
   - Target Namespace: `SentinelVision/Metrics`
-  - Published Metrics: `PipelineFPS` (11.2 Count/s), `InferenceLatencyMs` (89.4 ms), `HazardsDetected` (1.0 Count), `HazardsResolved` (1.0 Count).
+  - Published Metrics: `PipelineFPS` (11.2 Count/s), `InferenceLatencyMs` (89.4 ms), `HazardsDetected` (1.0 Count), `HazardsResolved` (1.0 Count) ([Console Screenshot](file:///home/crax/Music/opencv/sentinelvision/evidence/aws/screenshots/aws_cloudwatch_metrics_console.png)).
 
 ### B.2 Edge Resilience Under Cloud Outage
 Verified in `tests/test_aws_integration.py` (Test 5):

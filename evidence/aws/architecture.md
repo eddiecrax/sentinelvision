@@ -48,3 +48,28 @@ SentinelVision operates **edge-first** to ensure sub-100ms camera-to-action resp
   - `HazardsDetectedCount` (Counter)
   - `HazardsResolvedCount` (Counter)
   - `HumanOverridesCount` (Counter)
+
+---
+
+## 3. Verified Live AWS Console Evidence
+
+Authentic live deployment screenshots captured from the AWS Management Console (`us-east-1`, Account ID `550130133606`):
+
+### A. Amazon S3 Incident Storage
+![Amazon S3 Incident Trace JSON](screenshots/aws_s3_trace_console.png)
+*Figure 1: Amazon S3 Management Console displaying live incident trace `incidents/2026/10/SV-1001/trace.json` in bucket `sentinelvision-evidence-550130133606`.*
+
+![Amazon S3 Incident Snapshot Keyframe](screenshots/aws_s3_snapshot_console.png)
+*Figure 2: Amazon S3 Management Console displaying uploaded JPEG snapshot `incidents/2026/10/SV-1001/snapshot.jpg`.*
+
+![S3 Uploaded Incident Keyframe](screenshots/aws_s3_uploaded_keyframe.jpg)
+*Figure 3: Keyframe frame snapshot uploaded directly by SentinelVision edge pipeline during incident SV-1001 trigger.*
+
+### B. Amazon DynamoDB Incident State Ledger
+![Amazon DynamoDB Incidents Table](screenshots/aws_dynamodb_items_console.png)
+*Figure 4: Amazon DynamoDB console scan showing live state lifecycle records for incidents `SV-0001` and `SV-1001` with `resolved: true` and recorded resolution durations.*
+
+### C. Amazon CloudWatch Operational Telemetry
+![Amazon CloudWatch Metrics Console](screenshots/aws_cloudwatch_metrics_console.png)
+*Figure 5: Amazon CloudWatch metrics console graphing live operational telemetry (`PipelineFPS` ~10.6 FPS, `InferenceLatencyMs` ~94.7 ms, `HazardsDetected`, `HazardsResolved`).*
+
