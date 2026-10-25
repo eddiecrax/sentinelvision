@@ -64,3 +64,6 @@ data/videos/*
 
 # Keep small evaluation result JSON files tracked
 !data/evaluation/*.json
+
+# Internal Workspace Notes & Checklists (Private)
+notes/

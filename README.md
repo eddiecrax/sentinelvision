@@ -203,10 +203,8 @@ sentinelvision/
 For competition evaluators and judges:
 - 📄 **[Technical Report](submission/technical_report.md)**: Full engineering report detailing OpenCV 5 substantive role, mathematical formulations, agentic state machine, and evaluation.
 - 📐 **[System Architecture](submission/architecture.mmd)**: Mermaid system architecture diagram.
-- 📊 **[Evaluation & Evidence Report](submission/evaluation.md)**: Stage-by-stage latency breakdowns and controlled failure evaluations.
-- 🎬 **[Video Demonstration Script](submission/demo_script.md)**: 4-minute 30-second timed demo walkthrough script.
-- 📋 **[Final Submission Checklist](submission/FINAL_SUBMISSION_CHECKLIST.md)**: Competition requirements checklist and submission field mappings.
-- 🔍 **[Final Pre-Submission Audit](submission/FINAL_AUDIT.md)**: Pre-submission verification audit report.
+- 📊 **[Evaluation & Evidence Report](submission/evaluation.md)**: Stage-by-stage latency breakdowns, real-video performance, and controlled failure evaluations.
+- ☁️ **[AWS Cloud Architecture & Verified Artifacts](evidence/aws/architecture.md)**: Live serverless AWS architecture, S3/DynamoDB/CloudWatch verification, and authentic console screenshots.
 
 ---
 

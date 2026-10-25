@@ -151,9 +151,7 @@ All competition artifacts and technical documentation are available in the repos
 - 📄 **[Technical Report](technical_report.md)**: Full engineering paper detailing OpenCV 5 substantive role, mathematical formulations, agentic state machine, and evaluation.
 - 📐 **[System Architecture](architecture.mmd)**: Mermaid architectural diagram.
 - 📊 **[Evaluation & Evidence Report](evaluation.md)**: Stage-by-stage latency breakdowns, real-video performance, and controlled failure evaluations.
-- 🎬 **[Video Demonstration Script](demo_script.md)**: 4-minute 30-second timed demo walkthrough script.
-- 📋 **[Final Submission Checklist](FINAL_SUBMISSION_CHECKLIST.md)**: Competition requirements checklist and submission field mappings.
-- 🔍 **[Final Pre-Submission Audit](FINAL_AUDIT.md)**: Pre-submission verification audit report.
+- ☁️ **[AWS Cloud Architecture & Verified Artifacts](../evidence/aws/architecture.md)**: Live serverless AWS architecture, S3/DynamoDB/CloudWatch verification, and authentic console screenshots.
 
 ---
 
