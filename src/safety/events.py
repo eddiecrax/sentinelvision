@@ -28,6 +28,9 @@ class SafetyEvent:
     resolution_time: Optional[float] = None
     escalated: bool = False
     timeline: List[dict] = field(default_factory=list)
+    person_class: str = "person"
+    vehicle_class: str = "vehicle"
+    source: str = ""
 
     def resolve(self, timestamp: float):
         self.resolved = True
@@ -58,6 +61,9 @@ class SafetyEvent:
                                 if self.resolution_time else None),
             "escalated": self.escalated,
             "timeline": self.timeline,
+            "person_class": self.person_class,
+            "vehicle_class": self.vehicle_class,
+            "source": self.source,
         }
 
 
@@ -85,6 +91,8 @@ class EventManager:
             ttc=assessment.ttc,
             action_taken=action,
             reasons=assessment.reasons.copy(),
+            person_class=getattr(assessment, "person_class", "person"),
+            vehicle_class=getattr(assessment, "vehicle_class", "vehicle"),
         )
 
         pair_key = (assessment.person_id, assessment.vehicle_id)

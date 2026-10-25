@@ -228,7 +228,7 @@
       <div class="card">
         <div class="card-title">
           <span>Live Perception & Prediction Feed</span>
-          <span style="font-family: var(--font-mono); color: var(--accent-green); font-size: 0.8rem;">MJPEG 30FPS</span>
+          <span style="font-family: var(--font-mono); color: var(--accent-green); font-size: 0.8rem;">MJPEG LIVE</span>
         </div>
         <div class="video-container">
           <img src="/video_feed" alt="SentinelVision Stream" />
@@ -237,11 +237,11 @@
 
       <div class="stats-grid">
         <div class="stat-box">
-          <div class="stat-value" id="statFps">30.0</div>
+          <div class="stat-value" id="statFps">--</div>
           <div class="stat-label">Pipeline FPS</div>
         </div>
         <div class="stat-box">
-          <div class="stat-value" id="statLatency">85 ms</div>
+          <div class="stat-value" id="statLatency">--</div>
           <div class="stat-label">Inference Latency</div>
         </div>
         <div class="stat-box">
@@ -272,6 +272,17 @@
   </div>
 
   <script>
+    async function fetchStats() {
+      try {
+        const s = await (await fetch('/api/stats')).json();
+        document.getElementById('statFps').innerText = s.fps != null ? s.fps.toFixed(1) : '--';
+        document.getElementById('statLatency').innerText = s.inference_ms != null ? s.inference_ms + ' ms' : '--';
+      } catch (err) {
+        console.error('Failed to fetch stats:', err);
+      }
+    }
+    setInterval(fetchStats, 1500);
+
     async function fetchIncidents() {
       try {
         const res = await fetch('/api/incidents');
@@ -280,7 +291,7 @@
 
         const listEl = document.getElementById('incidentsList');
         if (incidents.length === 0) {
-          listEl.innerHTML = '<div style="color: var(--text-muted); font-size: 0.85rem; text-align: center; padding: 2rem 0;">No incidents logged yet</div>';
+          listEl.innerHTML = '<div style="color: var(--text-muted); font-size: 0.85rem; text-align: center; padding: 2rem 0;">No incidents detected on this feed yet</div>';
           return;
         }
 
@@ -293,7 +304,7 @@
               </span>
             </div>
             <div style="font-size: 0.8rem; margin: 0.35rem 0;">
-              Worker #${inc.person_id} ↔ Vehicle #${inc.vehicle_id} | TTC: ${inc.ttc ? inc.ttc + 's' : 'N/A'}
+              ${inc.person_class || 'person'} #${inc.person_id} ↔ ${inc.vehicle_class || 'vehicle'} #${inc.vehicle_id} | TTC: ${inc.ttc ? inc.ttc + 's' : 'N/A'}
             </div>
             ${!inc.resolved ? `
               <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
@@ -331,9 +342,13 @@
           body: JSON.stringify({ video_key: videoKey })
         });
         console.log('Switched video feed to:', videoKey);
+        // Each feed has its own incident log: clear the old one immediately
+        document.getElementById('incidentsList').innerHTML = '';
+        document.getElementById('statIncidents').innerText = '0';
         // Force reload img element src
         const img = document.querySelector('.video-container img');
         img.src = '/video_feed?t=' + new Date().getTime();
+        fetchIncidents();
       } catch (err) {
         console.error('Failed to switch video feed:', err);
       }
@@ -354,7 +369,18 @@
 
     // Auto-refresh incidents every 3 seconds
     setInterval(fetchIncidents, 3000);
-    fetchIncidents();
+
+    // Sync dropdowns with what the server is actually streaming, then load its incidents
+    (async function init() {
+      try {
+        const state = await (await fetch('/api/state')).json();
+        document.getElementById('videoSelect').value = state.video_key;
+        document.getElementById('profileSelect').value = state.profile;
+      } catch (err) {
+        console.error('Failed to read server state:', err);
+      }
+      fetchIncidents();
+    })();
   </script>
 </body>
 </html>

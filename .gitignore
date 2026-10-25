@@ -34,6 +34,7 @@ data/videos/*.avi
 data/videos/*.mov
 data/datasets/
 data/incidents.json
+data/incidents_*.json
 data/clips/*.jpg
 data/clips/snapshots/
 !data/clips/.gitkeep

@@ -25,6 +25,8 @@ class RiskAssessment:
     distance: float = 0.0
     persistence: float = 0.0    # seconds this risk has persisted
     timestamp: float = 0.0
+    person_class: str = "person"    # detected class of the pedestrian-side object
+    vehicle_class: str = "vehicle"  # detected class of the vehicle-side object (car/truck/bus/...)
 
     def to_dict(self) -> dict:
         return {
@@ -178,6 +180,8 @@ class RiskEngine:
             distance=cr.distance,
             persistence=persistence,
             timestamp=timestamp,
+            person_class=cr.person_class,
+            vehicle_class=cr.vehicle_class,
         )
 
     def reset(self):

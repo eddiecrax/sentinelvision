@@ -39,10 +39,18 @@ video_sources = {
 current_video_key = "warehouse"
 current_profile = "factory"
 global_pipeline: Optional[SentinelVisionPipeline] = None
+global_pipeline_key: Optional[str] = None   # which feed global_pipeline is processing
+global_last_timestamp: float = 0.0          # latest video timestamp seen by that pipeline
+global_stats = {"fps": None, "inference_ms": None}  # measured values, None until first measurement
 
 # Static dashboard files directory
 dashboard_dir = os.path.join(BASE_DIR, "dashboard")
 os.makedirs(dashboard_dir, exist_ok=True)
+
+
+def incidents_path_for(video_key: str) -> str:
+    """Each video feed has its own incident log so feeds never mix."""
+    return os.path.join(BASE_DIR, "data", f"incidents_{video_key}.json")
 
 
 class ProfileSwitchRequest(BaseModel):
@@ -64,46 +72,77 @@ def health_check():
     return {"status": "online", "system": "SentinelVision", "timestamp": time.time()}
 
 
+@app.get("/api/stats")
+def get_stats():
+    """Measured pipeline performance for the active feed (no placeholder values)."""
+    return {
+        "video_key": global_pipeline_key,
+        "fps": global_stats["fps"],
+        "inference_ms": global_stats["inference_ms"],
+    }
+
+
+@app.get("/api/state")
+def get_state():
+    """Current server-side selection, so the dashboard dropdowns match the stream."""
+    return {
+        "video_key": current_video_key,
+        "profile": current_profile,
+        "video_keys": list(video_sources.keys()),
+    }
+
+
 @app.get("/api/incidents")
-def get_incidents():
-    incidents_path = os.path.join(BASE_DIR, "data", "incidents.json")
-    storage = IncidentStorage(incidents_file=incidents_path)
-    records = list(storage.all_incidents)
+def get_incidents(source: Optional[str] = None):
+    """
+    Incidents detected by the pipeline for the selected video feed only.
+    Nothing is pre-seeded: an empty list means no incident has been detected yet.
+    """
+    key = source or current_video_key
+    if key not in video_sources:
+        return JSONResponse(status_code=400, content={"error": f"Invalid source: {key}"})
 
-    if global_pipeline is not None:
-        live_dicts = [e.to_dict() for e in global_pipeline.agent.event_manager.all_events]
-        seen_ids = set()
-        merged = []
-        for item in live_dicts + records:
-            if item["event_id"] not in seen_ids:
-                seen_ids.add(item["event_id"])
-                merged.append(item)
-        return JSONResponse(content=merged)
+    if global_pipeline is not None and global_pipeline_key == key:
+        events = []
+        for e in global_pipeline.agent.event_manager.all_events:
+            d = e.to_dict()
+            d["source"] = key
+            events.append(d)
+        return JSONResponse(content=events)
 
-    return JSONResponse(content=records)
+    # Stream for this feed is not active: fall back to its own persisted log (if any)
+    storage = IncidentStorage(incidents_file=incidents_path_for(key))
+    return JSONResponse(content=storage.all_incidents)
 
 
 @app.post("/api/incident/override")
 def human_override_incident(req: IncidentOverrideRequest):
-    incidents_path = os.path.join(BASE_DIR, "data", "incidents.json")
-    storage = IncidentStorage(incidents_file=incidents_path)
     logger.info(f"👨‍✈️ HUMAN OVERRIDE: Event {req.event_id} -> Action {req.action}")
 
-    if global_pipeline is not None:
-        for evt in global_pipeline.agent.event_manager.all_events:
-            if evt.event_id == req.event_id:
-                if req.action == "ACKNOWLEDGE":
-                    evt.action_taken = "OPERATOR_ACKNOWLEDGED"
-                elif req.action == "ESCALATE":
-                    evt.escalated = True
-                    evt.action_taken = "OPERATOR_ESCALATED"
-                elif req.action == "DISMISS":
-                    evt.resolve(time.time())
-                    evt.action_taken = "OPERATOR_DISMISSED"
-                storage.record_incident(evt, environment=current_profile)
-                break
+    if global_pipeline is None or global_pipeline_key != current_video_key:
+        return JSONResponse(status_code=409, content={"error": "No active stream for this feed"})
 
-    return {"status": "success", "event_id": req.event_id, "action": req.action}
+    manager = global_pipeline.agent.event_manager
+    for evt in manager.all_events:
+        if evt.event_id != req.event_id:
+            continue
+        if req.action == "ACKNOWLEDGE":
+            evt.action_taken = "OPERATOR_ACKNOWLEDGED"
+            evt.add_trace(global_last_timestamp, {"operator": True}, "HUMAN", "ACKNOWLEDGE")
+        elif req.action == "ESCALATE":
+            evt.escalated = True
+            evt.action_taken = "OPERATOR_ESCALATED"
+            evt.add_trace(global_last_timestamp, {"operator": True}, "HUMAN", "ESCALATE")
+        elif req.action == "DISMISS":
+            manager.resolve_event(evt.person_id, evt.vehicle_id, global_last_timestamp)
+            evt.action_taken = "OPERATOR_DISMISSED"
+        else:
+            return JSONResponse(status_code=400, content={"error": f"Invalid action: {req.action}"})
+        global_pipeline.incident_storage.record_incident(evt, environment=current_profile)
+        return {"status": "success", "event_id": req.event_id, "action": req.action}
+
+    return JSONResponse(status_code=404, content={"error": f"Unknown event: {req.event_id}"})
+
 
 
 @app.get("/api/profiles")
@@ -137,7 +176,7 @@ def set_video_source(req: VideoSwitchRequest):
 
 def generate_frames():
     """Video streaming generator function (MJPEG format)."""
-    global current_video_key, global_pipeline
+    global current_video_key, global_pipeline, global_pipeline_key, global_last_timestamp
     active_key = current_video_key
     video_path = video_sources.get(active_key, video_sources["warehouse"])
     config_path = os.path.join(BASE_DIR, "config", "system.yaml")
@@ -149,7 +188,15 @@ def generate_frames():
         show_display=False,
         profile_name=current_profile
     )
+
+    # Fresh, feed-specific incident log for this session (no carry-over from other feeds)
+    log_path = incidents_path_for(active_key)
+    if os.path.exists(log_path):
+        os.remove(log_path)
+    pipeline.incident_storage = IncidentStorage(incidents_file=log_path)
     global_pipeline = pipeline
+    global_pipeline_key = active_key
+    global_last_timestamp = 0.0
 
     if not source.open():
         logger.error("Failed to open video stream for web server")
@@ -162,12 +209,17 @@ def generate_frames():
 
     try:
         while True:
+            if current_video_key != active_key:
+                break  # user switched feed; stop this stale stream
+
             frame_data = source.read()
             if frame_data is None:
                 break
 
             frame = frame_data.frame
             timestamp = frame_data.timestamp
+            if global_pipeline is pipeline:
+                global_last_timestamp = timestamp
 
             processed = pipeline.preprocessor.process(frame)
             det_result = pipeline.detector.detect(processed, frame_data.frame_id, timestamp)
@@ -185,12 +237,15 @@ def generate_frames():
             risk_assessments = pipeline.risk_engine.evaluate(collision_risks, timestamp)
             actions = pipeline.agent.process(risk_assessments, timestamp)
 
-            # Persist significant safety incidents to storage
+            # Tag new events with the feed they came from, then persist actions
+            for e in pipeline.agent.event_manager.all_events:
+                if not e.source:
+                    e.source = active_key
             for action in actions:
                 if action.action_type.value not in ("monitor", "increase_monitoring"):
                     evt = pipeline.agent.event_manager.get_active(action.person_id, action.vehicle_id)
                     if not evt:
-                        for e in pipeline.agent.event_manager.all_events:
+                        for e in reversed(pipeline.agent.event_manager.all_events):
                             if e.person_id == action.person_id and e.vehicle_id == action.vehicle_id:
                                 evt = e
                                 break
@@ -208,6 +263,9 @@ def generate_frames():
                 current_fps = fps_counter / elapsed
                 fps_counter = 0
                 fps_start = time.time()
+            if global_pipeline is pipeline:
+                global_stats["fps"] = round(current_fps, 1) if current_fps else None
+                global_stats["inference_ms"] = round(det_result.inference_time_ms)
 
             annotated = pipeline.visualizer.draw(
                 frame,
