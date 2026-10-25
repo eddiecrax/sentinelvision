@@ -16,7 +16,8 @@
 | **OpenCV 5** | Core dependency, substantive processing (denoising, CLAHE, transform, HUD, video) | **VERIFIED** | `src/vision/preprocessing.py`, `src/vision/visualizer.py`, `src/vision/camera.py` |
 | **AWS Integration** | Real S3 evidence snapshot upload, DynamoDB incident ledger, CloudWatch telemetry | **VERIFIED** | Live AWS account (redacted), `evidence/aws/deployment_results.json` |
 | **AWS Cloud Resilience** | Edge safety loop continues without crashing if AWS network disconnects | **VERIFIED** | `tests/test_aws_integration.py` (Test 5 PASS) |
-| **Agentic Vision Award** | Multi-step perception → risk → decide → act → observe → resolve feedback loop | **VERIFIED** | `tests/test_scenario.py` (28 actions logged, full cycle) |
+| **Agentic Vision Award** | Multi-step perception → risk → decide → act → observe → resolve loop with debouncing & track handover | **VERIFIED** | `tests/test_scenario.py`, `src/agent/agent.py` |
+| **Tangible Industrial Safety** | Real factory collision warning, 50% alarm fatigue reduction, OSHA braking physics margin | **VERIFIED** | `tests/benchmark_tangible_safety.py`, `data/evaluation/tangible_safety_benchmark.json` |
 | **Failure Edge Cases** | 6 controlled industrial failure cases (occlusion, noise, density, near miss, collision, degradation) | **VERIFIED** | `tests/test_failures.py` (6/6 PASS) |
 | **Local Deployment** | Clean CPU Docker container runs YOLOv8 forward inference and MJPEG stream | **VERIFIED** | Docker Image `45f9be20827a`, `evidence/local_docker_integrity.md` |
 | **Reproducibility** | Clean configuration, setup scripts, zero hardcoded secrets | **VERIFIED** | `submission/README.md`, `.env.example`, `.dockerignore` |

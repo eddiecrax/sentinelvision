@@ -31,11 +31,53 @@ class SafetyEvent:
     person_class: str = "person"
     vehicle_class: str = "vehicle"
     source: str = ""
+    person_center: List[float] = field(default_factory=list)
+    vehicle_center: List[float] = field(default_factory=list)
+    last_seen_timestamp: float = 0.0
+    low_risk_start: Optional[float] = None
 
     def resolve(self, timestamp: float):
         self.resolved = True
         self.resolution_time = timestamp - self.timestamp
         self.add_trace(timestamp, {"ttc": self.ttc, "resolved": True}, "RESOLVE", "Incident resolved")
+
+    def update_state(self, timestamp: float, assessment: RiskAssessment):
+        """Update active event state with latest perception."""
+        self.last_seen_timestamp = timestamp
+        if assessment.level != "LOW":
+            self.low_risk_start = None  # Reset low risk counter only when elevated risk resumes
+        old_level = self.risk_level
+        self.risk_level = assessment.level
+        self.risk_score = max(self.risk_score, assessment.score)
+        self.ttc = assessment.ttc
+        if assessment.person_center:
+            self.person_center = assessment.person_center
+        if assessment.vehicle_center:
+            self.vehicle_center = assessment.vehicle_center
+        if assessment.level != old_level:
+            self.add_trace(
+                timestamp=timestamp,
+                vision={"ttc": assessment.ttc, "distance": assessment.distance, "risk": assessment.level},
+                decision=assessment.level,
+                action=f"Risk transitioned {old_level} -> {assessment.level}"
+            )
+
+    def handover_track(self, new_person_id: int, new_center: List[float], timestamp: float, distance_px: float):
+        """Reassociate track ID following tracker flicker / brief occlusion."""
+        old_id = self.person_id
+        self.person_id = new_person_id
+        if new_center:
+            self.person_center = new_center
+        self.last_seen_timestamp = timestamp
+        self.add_trace(
+            timestamp=timestamp,
+            vision={"ttc": self.ttc, "spatial_delta": round(distance_px, 1)},
+            decision="TRACK_HANDOVER",
+            action=f"Reassociated person track P#{old_id} -> P#{new_person_id} (offset {distance_px:.1f}px)"
+        )
+        logger.info(
+            f"🔄 TRACK HANDOVER in {self.event_id}: P#{old_id} -> P#{new_person_id} (offset {distance_px:.1f}px)"
+        )
 
     def add_trace(self, timestamp: float, vision: dict, decision: str, action: str):
         self.timeline.append({
@@ -93,6 +135,9 @@ class EventManager:
             reasons=assessment.reasons.copy(),
             person_class=getattr(assessment, "person_class", "person"),
             vehicle_class=getattr(assessment, "vehicle_class", "vehicle"),
+            person_center=getattr(assessment, "person_center", []),
+            vehicle_center=getattr(assessment, "vehicle_center", []),
+            last_seen_timestamp=assessment.timestamp,
         )
 
         pair_key = (assessment.person_id, assessment.vehicle_id)
@@ -133,6 +178,17 @@ class EventManager:
             event.escalated = True
             logger.critical(f"🔴 ESCALATED {event.event_id}")
         return event
+
+    def handover_event(self, old_pair: tuple, new_pair: tuple,
+                       new_center: List[float], timestamp: float,
+                       distance_px: float) -> Optional[SafetyEvent]:
+        """Transfer an active incident tracking record to a new track ID upon flicker/occlusion."""
+        event = self._active.pop(old_pair, None)
+        if event:
+            event.handover_track(new_pair[0], new_center, timestamp, distance_px)
+            self._active[new_pair] = event
+            return event
+        return None
 
     def get_active(self, person_id: int, vehicle_id: int) -> Optional[SafetyEvent]:
         return self._active.get((person_id, vehicle_id))

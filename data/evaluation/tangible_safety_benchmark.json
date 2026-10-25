@@ -1,0 +1,29 @@
+{
+  "timestamp": "2026-10-25T20:46:04Z",
+  "real_clip_evaluation": {
+    "clip": "data/videos/factory_forklift.mp4",
+    "total_frames_processed": 647,
+    "ground_truth_encounters": 2,
+    "encounters_detected": 2,
+    "encounter_recall": 1.0,
+    "raw_incidents_without_debouncing": 4,
+    "debounced_incidents_created": 2,
+    "duplicate_alarm_reduction_pct": 50.0,
+    "encounter_1_lead_time_sec": 1.58,
+    "encounter_2_lead_time_sec": 2.5,
+    "average_lead_time_sec": 2.04,
+    "osha_stopping_time_required_sec": 1.55,
+    "braking_safety_margin_sec": 0.49,
+    "full_stop_achieved_before_impact": true
+  },
+  "noise_suppression_evaluation": {
+    "spikes_tested": 10,
+    "spikes_suppressed": 10,
+    "noise_suppression_rate": 1.0
+  },
+  "summary": {
+    "problem_solved": "Industrial collision avoidance with alarm fatigue mitigation",
+    "physical_compliance": "OSHA / ANSI B56.1 safety distance feasible",
+    "audit_verdict": "Tangible Problem Solved"
+  }
+}

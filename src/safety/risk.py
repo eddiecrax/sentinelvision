@@ -27,6 +27,8 @@ class RiskAssessment:
     timestamp: float = 0.0
     person_class: str = "person"    # detected class of the pedestrian-side object
     vehicle_class: str = "vehicle"  # detected class of the vehicle-side object (car/truck/bus/...)
+    person_center: List[float] = field(default_factory=list)
+    vehicle_center: List[float] = field(default_factory=list)
 
     def to_dict(self) -> dict:
         return {
@@ -182,6 +184,8 @@ class RiskEngine:
             timestamp=timestamp,
             person_class=cr.person_class,
             vehicle_class=cr.vehicle_class,
+            person_center=getattr(cr, "person_center", []),
+            vehicle_center=getattr(cr, "vehicle_center", []),
         )
 
     def reset(self):

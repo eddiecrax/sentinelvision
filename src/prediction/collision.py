@@ -29,6 +29,8 @@ class CollisionRisk:
     trajectory_intersects: bool
     min_trajectory_distance: float
     time_of_closest: float
+    person_center: List[float] = field(default_factory=list)
+    vehicle_center: List[float] = field(default_factory=list)
 
     def to_dict(self) -> dict:
         return {
@@ -108,4 +110,6 @@ class CollisionAnalyzer:
             trajectory_intersects=intersects,
             min_trajectory_distance=min_dist,
             time_of_closest=t_closest,
+            person_center=list(person.center),
+            vehicle_center=list(vehicle.center),
         )

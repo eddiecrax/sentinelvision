@@ -36,7 +36,7 @@ video_sources = {
     "pedestrian": os.path.join(BASE_DIR, "data", "videos", "pedestrian_traffic.mp4"),
     "traffic": os.path.join(BASE_DIR, "data", "videos", "test_traffic.mp4"),
 }
-current_video_key = "warehouse"
+current_video_key = "factory"
 current_profile = "factory"
 global_pipeline: Optional[SentinelVisionPipeline] = None
 global_pipeline_key: Optional[str] = None   # which feed global_pipeline is processing

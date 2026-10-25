@@ -1,0 +1,65 @@
+{
+  "summary": {
+    "clip": "data/videos/factory_forklift.mp4",
+    "frames_processed": 647,
+    "processing_fps": 7.7,
+    "frames_with_person_and_vehicle_tracked": 123,
+    "incidents_created": 4,
+    "incidents_escalated": 3,
+    "note": "Factual pipeline log on real footage. Whether each incident is a true hazard requires human labelling; no accuracy is claimed here."
+  },
+  "incidents": [
+    {
+      "event_id": "SV-0001",
+      "first_frame": 330,
+      "first_time_s": 54.93,
+      "risk_level": "HIGH",
+      "person_class": "person",
+      "vehicle_class": "bicycle",
+      "person_id": 6,
+      "vehicle_id": 5,
+      "ttc_s": 1.08,
+      "resolved_frame": 348,
+      "escalated": true
+    },
+    {
+      "event_id": "SV-0002",
+      "first_frame": 343,
+      "first_time_s": 56.21,
+      "risk_level": "MEDIUM",
+      "person_class": "person",
+      "vehicle_class": "bicycle",
+      "person_id": 7,
+      "vehicle_id": 5,
+      "ttc_s": 6.97,
+      "resolved_frame": 377,
+      "escalated": true
+    },
+    {
+      "event_id": "SV-0003",
+      "first_frame": 570,
+      "first_time_s": 78.81,
+      "risk_level": "HIGH",
+      "person_class": "person",
+      "vehicle_class": "bicycle",
+      "person_id": 14,
+      "vehicle_id": 13,
+      "ttc_s": 1.72,
+      "resolved_frame": 588,
+      "escalated": false
+    },
+    {
+      "event_id": "SV-0004",
+      "first_frame": 582,
+      "first_time_s": 80.16,
+      "risk_level": "HIGH",
+      "person_class": "person",
+      "vehicle_class": "bicycle",
+      "person_id": 15,
+      "vehicle_id": 13,
+      "ttc_s": 2.52,
+      "resolved_frame": 621,
+      "escalated": true
+    }
+  ]
+}
