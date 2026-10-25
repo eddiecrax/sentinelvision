@@ -202,6 +202,7 @@ sentinelvision/
 
 For competition evaluators and judges:
 - 📄 **[Technical Report](submission/technical_report.md)**: Full engineering report detailing OpenCV 5 substantive role, mathematical formulations, agentic state machine, and evaluation.
+- 🎬 **[Official Video Demonstration (Narrated 1080p)](submission/sentinelvision_official_demo.mp4)**: Synchronized neural voiceover walkthrough covering edge architecture, live factory forklift pipeline, web dashboard, serverless AWS tier, and OSHA braking physics.
 - 📐 **[System Architecture](submission/architecture.mmd)**: Mermaid system architecture diagram.
 - 📊 **[Evaluation & Evidence Report](submission/evaluation.md)**: Stage-by-stage latency breakdowns, real-video performance, and controlled failure evaluations.
 - ☁️ **[AWS Cloud Architecture & Verified Artifacts](evidence/aws/architecture.md)**: Live serverless AWS architecture, S3/DynamoDB/CloudWatch verification, and authentic console screenshots.

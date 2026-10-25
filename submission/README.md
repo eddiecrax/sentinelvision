@@ -149,6 +149,7 @@ python tests/test_evidence_suite.py
 
 All competition artifacts and technical documentation are available in the repository:
 - 📄 **[Technical Report](technical_report.md)**: Full engineering paper detailing OpenCV 5 substantive role, mathematical formulations, agentic state machine, and evaluation.
+- 🎬 **[Official Video Demonstration (Narrated 1080p)](sentinelvision_official_demo.mp4)**: Synchronized neural voiceover walkthrough covering edge architecture, live factory forklift pipeline, web dashboard, serverless AWS tier, and OSHA braking physics.
 - 📐 **[System Architecture](architecture.mmd)**: Mermaid architectural diagram.
 - 📊 **[Evaluation & Evidence Report](evaluation.md)**: Stage-by-stage latency breakdowns, real-video performance, and controlled failure evaluations.
 - ☁️ **[AWS Cloud Architecture & Verified Artifacts](../evidence/aws/architecture.md)**: Live serverless AWS architecture, S3/DynamoDB/CloudWatch verification, and authentic console screenshots.
