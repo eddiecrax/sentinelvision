@@ -1,0 +1,3474 @@
+{
+  "metadata": {
+    "video_source": "data/videos/factory_forklift.mp4",
+    "encounter": "Encounter 1 (Pedestrian & Forklift convergence)",
+    "frames_analyzed": "325-405",
+    "pipeline_fps": 10.6,
+    "agent_stats": {
+      "total": 1,
+      "active": 0,
+      "resolved": 1,
+      "escalated": 1,
+      "total_actions": 137,
+      "active_warnings": 0
+    }
+  },
+  "incidents_created": [
+    {
+      "event_id": "SV-0001",
+      "timestamp": 30.249297618865967,
+      "risk_level": "CRITICAL",
+      "risk_score": 0.85,
+      "person_id": 7,
+      "vehicle_id": 5,
+      "ttc": 0.22,
+      "action": "warning",
+      "reasons": [
+        "short_ttc",
+        "very_close_proximity",
+        "trajectory_convergence"
+      ],
+      "resolved": true,
+      "resolution_time": 4.71,
+      "escalated": true,
+      "timeline": [
+        {
+          "timestamp": 30.25,
+          "vision": {
+            "ttc": 0.6708945785113843,
+            "distance": 29.04119016805699,
+            "risk": "HIGH"
+          },
+          "decision": "HIGH",
+          "action": "warning"
+        },
+        {
+          "timestamp": 30.33,
+          "vision": {
+            "ttc": Infinity,
+            "distance": 31.0700183605001,
+            "risk": "MEDIUM"
+          },
+          "decision": "MEDIUM",
+          "action": "Risk transitioned HIGH -> MEDIUM"
+        },
+        {
+          "timestamp": 30.41,
+          "vision": {
+            "ttc": 0.8927259169250209,
+            "distance": 28.531267295901845,
+            "risk": "HIGH"
+          },
+          "decision": "HIGH",
+          "action": "Risk transitioned MEDIUM -> HIGH"
+        },
+        {
+          "timestamp": 30.48,
+          "vision": {
+            "ttc": Infinity,
+            "distance": 30.907171416736865,
+            "risk": "MEDIUM"
+          },
+          "decision": "MEDIUM",
+          "action": "Risk transitioned HIGH -> MEDIUM"
+        },
+        {
+          "timestamp": 30.55,
+          "vision": {
+            "ttc": 1.9897107140719197,
+            "distance": 29.76855976598577,
+            "risk": "HIGH"
+          },
+          "decision": "HIGH",
+          "action": "Risk transitioned MEDIUM -> HIGH"
+        },
+        {
+          "timestamp": 30.7,
+          "vision": {
+            "ttc": Infinity,
+            "distance": 28.295848010493906,
+            "risk": "MEDIUM"
+          },
+          "decision": "MEDIUM",
+          "action": "Risk transitioned HIGH -> MEDIUM"
+        },
+        {
+          "timestamp": 30.85,
+          "vision": {
+            "ttc": 0.2893677569287005,
+            "distance": 23.46577071625619,
+            "risk": "CRITICAL"
+          },
+          "decision": "CRITICAL",
+          "action": "Risk transitioned MEDIUM -> CRITICAL"
+        },
+        {
+          "timestamp": 30.93,
+          "vision": {
+            "ttc": 0.6525882401135135,
+            "distance": 25.557831705199213,
+            "risk": "HIGH"
+          },
+          "decision": "HIGH",
+          "action": "Risk transitioned CRITICAL -> HIGH"
+        },
+        {
+          "timestamp": 31.07,
+          "vision": {
+            "ttc": 7.192501233598134,
+            "distance": 33.41484380856713,
+            "risk": "MEDIUM"
+          },
+          "decision": "MEDIUM",
+          "action": "Risk transitioned HIGH -> MEDIUM"
+        },
+        {
+          "timestamp": 31.23,
+          "vision": {
+            "ttc": 4.725051431537113,
+            "distance": 26.66159105955816,
+            "risk": "HIGH"
+          },
+          "decision": "HIGH",
+          "action": "Risk transitioned MEDIUM -> HIGH"
+        },
+        {
+          "timestamp": 31.23,
+          "vision": {
+            "ttc": 6.487664597738687,
+            "distance": 42.43653752089154,
+            "risk": "MEDIUM"
+          },
+          "decision": "MEDIUM",
+          "action": "Risk transitioned HIGH -> MEDIUM"
+        },
+        {
+          "timestamp": 31.3,
+          "vision": {
+            "ttc": 2.774987120360054,
+            "distance": 25.853947494179874,
+            "risk": "HIGH"
+          },
+          "decision": "HIGH",
+          "action": "Risk transitioned MEDIUM -> HIGH"
+        },
+        {
+          "timestamp": 31.3,
+          "vision": {
+            "ttc": Infinity,
+            "distance": 48.49659416222843,
+            "risk": "MEDIUM"
+          },
+          "decision": "MEDIUM",
+          "action": "Risk transitioned HIGH -> MEDIUM"
+        },
+        {
+          "timestamp": 31.45,
+          "vision": {
+            "ttc": 0.4456128612009843,
+            "distance": 23.71103205842457,
+            "risk": "CRITICAL"
+          },
+          "decision": "CRITICAL",
+          "action": "Risk transitioned MEDIUM -> CRITICAL"
+        },
+        {
+          "timestamp": 31.45,
+          "vision": {
+            "ttc": 28.517585289790727,
+            "distance": 58.482204409795756,
+            "risk": "MEDIUM"
+          },
+          "decision": "MEDIUM",
+          "action": "Risk transitioned CRITICAL -> MEDIUM"
+        },
+        {
+          "timestamp": 31.52,
+          "vision": {
+            "ttc": 0.3826806704710609,
+            "distance": 23.45058257159892,
+            "risk": "CRITICAL"
+          },
+          "decision": "CRITICAL",
+          "action": "Risk transitioned MEDIUM -> CRITICAL"
+        },
+        {
+          "timestamp": 31.52,
+          "vision": {
+            "ttc": 12.25203114543277,
+            "distance": 61.919884544139386,
+            "risk": "MEDIUM"
+          },
+          "decision": "MEDIUM",
+          "action": "Risk transitioned CRITICAL -> MEDIUM"
+        },
+        {
+          "timestamp": 31.6,
+          "vision": {
+            "ttc": 0.3684020652776574,
+            "distance": 24.165014783176183,
+            "risk": "CRITICAL"
+          },
+          "decision": "CRITICAL",
+          "action": "Risk transitioned MEDIUM -> CRITICAL"
+        },
+        {
+          "timestamp": 31.6,
+          "vision": {
+            "ttc": Infinity,
+            "distance": 65.8993519449356,
+            "risk": "LOW"
+          },
+          "decision": "LOW",
+          "action": "Risk transitioned CRITICAL -> LOW"
+        },
+        {
+          "timestamp": 31.67,
+          "vision": {
+            "ttc": 0.22100244090289858,
+            "distance": 23.145149525827417,
+            "risk": "CRITICAL"
+          },
+          "decision": "CRITICAL",
+          "action": "Risk transitioned LOW -> CRITICAL"
+        },
+        {
+          "timestamp": 31.67,
+          "vision": {
+            "ttc": 7.936946542107213,
+            "distance": 68.87644442108615,
+            "risk": "MEDIUM"
+          },
+          "decision": "MEDIUM",
+          "action": "Risk transitioned CRITICAL -> MEDIUM"
+        },
+        {
+          "timestamp": 31.74,
+          "vision": {
+            "ttc": 0.22100244090289858,
+            "distance": 23.145149525827417,
+            "risk": "CRITICAL"
+          },
+          "decision": "CRITICAL",
+          "action": "Risk transitioned MEDIUM -> CRITICAL"
+        },
+        {
+          "timestamp": 31.74,
+          "vision": {
+            "ttc": 7.936946542107213,
+            "distance": 68.87644442108615,
+            "risk": "MEDIUM"
+          },
+          "decision": "MEDIUM",
+          "action": "Risk transitioned CRITICAL -> MEDIUM"
+        },
+        {
+          "timestamp": 31.81,
+          "vision": {
+            "ttc": 0.22100244090289858,
+            "distance": 23.145149525827417,
+            "risk": "CRITICAL"
+          },
+          "decision": "CRITICAL",
+          "action": "Risk transitioned MEDIUM -> CRITICAL"
+        },
+        {
+          "timestamp": 31.81,
+          "vision": {
+            "ttc": 7.936946542107213,
+            "distance": 68.87644442108615,
+            "risk": "MEDIUM"
+          },
+          "decision": "MEDIUM",
+          "action": "Risk transitioned CRITICAL -> MEDIUM"
+        },
+        {
+          "timestamp": 31.89,
+          "vision": {
+            "ttc": 0.22100244090289858,
+            "distance": 23.145149525827417,
+            "risk": "CRITICAL"
+          },
+          "decision": "CRITICAL",
+          "action": "Risk transitioned MEDIUM -> CRITICAL"
+        },
+        {
+          "timestamp": 31.89,
+          "vision": {
+            "ttc": 7.936946542107213,
+            "distance": 68.87644442108615,
+            "risk": "MEDIUM"
+          },
+          "decision": "MEDIUM",
+          "action": "Risk transitioned CRITICAL -> MEDIUM"
+        },
+        {
+          "timestamp": 31.96,
+          "vision": {
+            "ttc": 0.22100244090289858,
+            "distance": 23.145149525827417,
+            "risk": "CRITICAL"
+          },
+          "decision": "CRITICAL",
+          "action": "Risk transitioned MEDIUM -> CRITICAL"
+        },
+        {
+          "timestamp": 31.96,
+          "vision": {
+            "ttc": 7.936946542107213,
+            "distance": 68.87644442108615,
+            "risk": "MEDIUM"
+          },
+          "decision": "MEDIUM",
+          "action": "Risk transitioned CRITICAL -> MEDIUM"
+        },
+        {
+          "timestamp": 32.03,
+          "vision": {
+            "ttc": 0.22100244090289858,
+            "distance": 23.145149525827417,
+            "risk": "CRITICAL"
+          },
+          "decision": "CRITICAL",
+          "action": "Risk transitioned MEDIUM -> CRITICAL"
+        },
+        {
+          "timestamp": 32.03,
+          "vision": {
+            "ttc": 7.936946542107213,
+            "distance": 68.87644442108615,
+            "risk": "MEDIUM"
+          },
+          "decision": "MEDIUM",
+          "action": "Risk transitioned CRITICAL -> MEDIUM"
+        },
+        {
+          "timestamp": 32.11,
+          "vision": {
+            "ttc": 0.22100244090289858,
+            "distance": 23.145149525827417,
+            "risk": "CRITICAL"
+          },
+          "decision": "CRITICAL",
+          "action": "Risk transitioned MEDIUM -> CRITICAL"
+        },
+        {
+          "timestamp": 32.11,
+          "vision": {
+            "ttc": 7.936946542107213,
+            "distance": 68.87644442108615,
+            "risk": "MEDIUM"
+          },
+          "decision": "MEDIUM",
+          "action": "Risk transitioned CRITICAL -> MEDIUM"
+        },
+        {
+          "timestamp": 32.18,
+          "vision": {
+            "ttc": 0.22100244090289858,
+            "distance": 23.145149525827417,
+            "risk": "CRITICAL"
+          },
+          "decision": "CRITICAL",
+          "action": "Risk transitioned MEDIUM -> CRITICAL"
+        },
+        {
+          "timestamp": 32.18,
+          "vision": {
+            "ttc": 7.936946542107213,
+            "distance": 68.87644442108615,
+            "risk": "MEDIUM"
+          },
+          "decision": "MEDIUM",
+          "action": "Risk transitioned CRITICAL -> MEDIUM"
+        },
+        {
+          "timestamp": 32.26,
+          "vision": {
+            "ttc": 0.22100244090289858,
+            "distance": 23.145149525827417,
+            "risk": "CRITICAL"
+          },
+          "decision": "CRITICAL",
+          "action": "Risk transitioned MEDIUM -> CRITICAL"
+        },
+        {
+          "timestamp": 32.26,
+          "vision": {
+            "ttc": 7.936946542107213,
+            "distance": 68.87644442108615,
+            "risk": "MEDIUM"
+          },
+          "decision": "MEDIUM",
+          "action": "Risk transitioned CRITICAL -> MEDIUM"
+        },
+        {
+          "timestamp": 32.33,
+          "vision": {
+            "ttc": 0.22100244090289858,
+            "distance": 23.145149525827417,
+            "risk": "CRITICAL"
+          },
+          "decision": "CRITICAL",
+          "action": "Risk transitioned MEDIUM -> CRITICAL"
+        },
+        {
+          "timestamp": 32.33,
+          "vision": {
+            "ttc": 7.936946542107213,
+            "distance": 68.87644442108615,
+            "risk": "MEDIUM"
+          },
+          "decision": "MEDIUM",
+          "action": "Risk transitioned CRITICAL -> MEDIUM"
+        },
+        {
+          "timestamp": 32.41,
+          "vision": {
+            "ttc": 0.22100244090289858,
+            "distance": 23.145149525827417,
+            "risk": "CRITICAL"
+          },
+          "decision": "CRITICAL",
+          "action": "Risk transitioned MEDIUM -> CRITICAL"
+        },
+        {
+          "timestamp": 32.41,
+          "vision": {
+            "ttc": 7.936946542107213,
+            "distance": 68.87644442108615,
+            "risk": "MEDIUM"
+          },
+          "decision": "MEDIUM",
+          "action": "Risk transitioned CRITICAL -> MEDIUM"
+        },
+        {
+          "timestamp": 32.48,
+          "vision": {
+            "ttc": 0.22100244090289858,
+            "distance": 23.145149525827417,
+            "risk": "CRITICAL"
+          },
+          "decision": "CRITICAL",
+          "action": "Risk transitioned MEDIUM -> CRITICAL"
+        },
+        {
+          "timestamp": 32.48,
+          "vision": {
+            "ttc": 7.936946542107213,
+            "distance": 68.87644442108615,
+            "risk": "MEDIUM"
+          },
+          "decision": "MEDIUM",
+          "action": "Risk transitioned CRITICAL -> MEDIUM"
+        },
+        {
+          "timestamp": 32.55,
+          "vision": {
+            "ttc": 0.22100244090289858,
+            "distance": 23.145149525827417,
+            "risk": "CRITICAL"
+          },
+          "decision": "CRITICAL",
+          "action": "Risk transitioned MEDIUM -> CRITICAL"
+        },
+        {
+          "timestamp": 32.55,
+          "vision": {
+            "ttc": 7.936946542107213,
+            "distance": 68.87644442108615,
+            "risk": "MEDIUM"
+          },
+          "decision": "MEDIUM",
+          "action": "Risk transitioned CRITICAL -> MEDIUM"
+        },
+        {
+          "timestamp": 32.63,
+          "vision": {
+            "ttc": 0.22100244090289858,
+            "distance": 23.145149525827417,
+            "risk": "CRITICAL"
+          },
+          "decision": "CRITICAL",
+          "action": "Risk transitioned MEDIUM -> CRITICAL"
+        },
+        {
+          "timestamp": 32.63,
+          "vision": {
+            "ttc": 7.936946542107213,
+            "distance": 68.87644442108615,
+            "risk": "MEDIUM"
+          },
+          "decision": "MEDIUM",
+          "action": "Risk transitioned CRITICAL -> MEDIUM"
+        },
+        {
+          "timestamp": 32.7,
+          "vision": {
+            "ttc": 0.22100244090289858,
+            "distance": 23.145149525827417,
+            "risk": "CRITICAL"
+          },
+          "decision": "CRITICAL",
+          "action": "Risk transitioned MEDIUM -> CRITICAL"
+        },
+        {
+          "timestamp": 32.7,
+          "vision": {
+            "ttc": 7.936946542107213,
+            "distance": 68.87644442108615,
+            "risk": "MEDIUM"
+          },
+          "decision": "MEDIUM",
+          "action": "Risk transitioned CRITICAL -> MEDIUM"
+        },
+        {
+          "timestamp": 32.78,
+          "vision": {
+            "ttc": 0.22100244090289858,
+            "distance": 23.145149525827417,
+            "risk": "CRITICAL"
+          },
+          "decision": "CRITICAL",
+          "action": "Risk transitioned MEDIUM -> CRITICAL"
+        },
+        {
+          "timestamp": 32.78,
+          "vision": {
+            "ttc": 7.936946542107213,
+            "distance": 68.87644442108615,
+            "risk": "MEDIUM"
+          },
+          "decision": "MEDIUM",
+          "action": "Risk transitioned CRITICAL -> MEDIUM"
+        },
+        {
+          "timestamp": 32.85,
+          "vision": {
+            "ttc": 0.22100244090289858,
+            "distance": 23.145149525827417,
+            "risk": "CRITICAL"
+          },
+          "decision": "CRITICAL",
+          "action": "Risk transitioned MEDIUM -> CRITICAL"
+        },
+        {
+          "timestamp": 32.85,
+          "vision": {
+            "ttc": 7.936946542107213,
+            "distance": 68.87644442108615,
+            "risk": "MEDIUM"
+          },
+          "decision": "MEDIUM",
+          "action": "Risk transitioned CRITICAL -> MEDIUM"
+        },
+        {
+          "timestamp": 32.92,
+          "vision": {
+            "ttc": 0.22100244090289858,
+            "distance": 23.145149525827417,
+            "risk": "CRITICAL"
+          },
+          "decision": "CRITICAL",
+          "action": "Risk transitioned MEDIUM -> CRITICAL"
+        },
+        {
+          "timestamp": 32.92,
+          "vision": {
+            "ttc": 7.936946542107213,
+            "distance": 68.87644442108615,
+            "risk": "MEDIUM"
+          },
+          "decision": "MEDIUM",
+          "action": "Risk transitioned CRITICAL -> MEDIUM"
+        },
+        {
+          "timestamp": 33.0,
+          "vision": {
+            "ttc": 0.22100244090289858,
+            "distance": 23.145149525827417,
+            "risk": "CRITICAL"
+          },
+          "decision": "CRITICAL",
+          "action": "Risk transitioned MEDIUM -> CRITICAL"
+        },
+        {
+          "timestamp": 33.0,
+          "vision": {
+            "ttc": 7.936946542107213,
+            "distance": 68.87644442108615,
+            "risk": "MEDIUM"
+          },
+          "decision": "MEDIUM",
+          "action": "Risk transitioned CRITICAL -> MEDIUM"
+        },
+        {
+          "timestamp": 33.07,
+          "vision": {
+            "ttc": 0.22100244090289858,
+            "distance": 23.145149525827417,
+            "risk": "CRITICAL"
+          },
+          "decision": "CRITICAL",
+          "action": "Risk transitioned MEDIUM -> CRITICAL"
+        },
+        {
+          "timestamp": 33.07,
+          "vision": {
+            "ttc": 7.936946542107213,
+            "distance": 68.87644442108615,
+            "risk": "MEDIUM"
+          },
+          "decision": "MEDIUM",
+          "action": "Risk transitioned CRITICAL -> MEDIUM"
+        },
+        {
+          "timestamp": 33.15,
+          "vision": {
+            "ttc": 7.936946542107213,
+            "spatial_delta": 60.3
+          },
+          "decision": "TRACK_HANDOVER",
+          "action": "Reassociated person track P#6 -> P#7 (offset 60.3px)"
+        },
+        {
+          "timestamp": 33.15,
+          "vision": {
+            "ttc": 0.22100244090289858,
+            "distance": 23.145149525827417,
+            "risk": "CRITICAL"
+          },
+          "decision": "CRITICAL",
+          "action": "Risk transitioned MEDIUM -> CRITICAL"
+        },
+        {
+          "timestamp": 34.95,
+          "vision": {
+            "ttc": 0.22100244090289858,
+            "resolved": true
+          },
+          "decision": "RESOLVE",
+          "action": "Incident resolved"
+        }
+      ],
+      "person_class": "person",
+      "vehicle_class": "bicycle",
+      "source": ""
+    }
+  ],
+  "frame_by_frame_trace": [
+    {
+      "frame": 325,
+      "timestamp_sec": 29.879,
+      "tracked_entities": [],
+      "top_risk": null,
+      "actions_executed": [],
+      "active_incident": null
+    },
+    {
+      "frame": 326,
+      "timestamp_sec": 29.953,
+      "tracked_entities": [],
+      "top_risk": null,
+      "actions_executed": [],
+      "active_incident": null
+    },
+    {
+      "frame": 327,
+      "timestamp_sec": 30.025,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            602.2,
+            62.3
+          ]
+        }
+      ],
+      "top_risk": null,
+      "actions_executed": [],
+      "active_incident": null
+    },
+    {
+      "frame": 328,
+      "timestamp_sec": 30.099,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            608.4,
+            64.5
+          ]
+        },
+        {
+          "id": 6,
+          "class": "person",
+          "center": [
+            621.3,
+            38.0
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "MEDIUM",
+        "score": 0.35,
+        "ttc_sec": null,
+        "distance_px": 29.4,
+        "closing_velocity_px_s": -12.0
+      },
+      "actions_executed": [],
+      "active_incident": null
+    },
+    {
+      "frame": 329,
+      "timestamp_sec": 30.172,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            608.4,
+            64.5
+          ]
+        },
+        {
+          "id": 6,
+          "class": "person",
+          "center": [
+            628.1,
+            36.8
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "MEDIUM",
+        "score": 0.339,
+        "ttc_sec": null,
+        "distance_px": 34.0,
+        "closing_velocity_px_s": -42.7
+      },
+      "actions_executed": [],
+      "active_incident": null
+    },
+    {
+      "frame": 330,
+      "timestamp_sec": 30.249,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            621.9,
+            68.5
+          ]
+        },
+        {
+          "id": 6,
+          "class": "person",
+          "center": [
+            632.7,
+            41.5
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "HIGH",
+        "score": 0.741,
+        "ttc_sec": 0.67,
+        "distance_px": 29.0,
+        "closing_velocity_px_s": 43.3
+      },
+      "actions_executed": [
+        "visual_warning",
+        "create_incident"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 6,
+        "vehicle_id": 5,
+        "risk_level": "HIGH",
+        "escalated": false,
+        "resolved": false,
+        "timeline_entries": 1
+      }
+    },
+    {
+      "frame": 331,
+      "timestamp_sec": 30.326,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            629.5,
+            71.5
+          ]
+        },
+        {
+          "id": 6,
+          "class": "person",
+          "center": [
+            639.3,
+            42.0
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "MEDIUM",
+        "score": 0.347,
+        "ttc_sec": null,
+        "distance_px": 31.1,
+        "closing_velocity_px_s": -27.2
+      },
+      "actions_executed": [
+        "increase_monitoring"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 6,
+        "vehicle_id": 5,
+        "risk_level": "MEDIUM",
+        "escalated": false,
+        "resolved": false,
+        "timeline_entries": 2
+      }
+    },
+    {
+      "frame": 332,
+      "timestamp_sec": 30.405,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            636.1,
+            71.3
+          ]
+        },
+        {
+          "id": 6,
+          "class": "person",
+          "center": [
+            645.5,
+            44.3
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "HIGH",
+        "score": 0.717,
+        "ttc_sec": 0.89,
+        "distance_px": 28.5,
+        "closing_velocity_px_s": 32.0
+      },
+      "actions_executed": [
+        "visual_warning"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 6,
+        "vehicle_id": 5,
+        "risk_level": "HIGH",
+        "escalated": false,
+        "resolved": false,
+        "timeline_entries": 3
+      }
+    },
+    {
+      "frame": 333,
+      "timestamp_sec": 30.48,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            643.9,
+            74.7
+          ]
+        },
+        {
+          "id": 6,
+          "class": "person",
+          "center": [
+            651.8,
+            44.8
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "MEDIUM",
+        "score": 0.347,
+        "ttc_sec": null,
+        "distance_px": 30.9,
+        "closing_velocity_px_s": -32.9
+      },
+      "actions_executed": [
+        "increase_monitoring"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 6,
+        "vehicle_id": 5,
+        "risk_level": "MEDIUM",
+        "escalated": false,
+        "resolved": false,
+        "timeline_entries": 4
+      }
+    },
+    {
+      "frame": 334,
+      "timestamp_sec": 30.554,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            650.7,
+            75.8
+          ]
+        },
+        {
+          "id": 6,
+          "class": "person",
+          "center": [
+            659.4,
+            47.3
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "HIGH",
+        "score": 0.653,
+        "ttc_sec": 1.99,
+        "distance_px": 29.8,
+        "closing_velocity_px_s": 15.0
+      },
+      "actions_executed": [
+        "visual_warning"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 6,
+        "vehicle_id": 5,
+        "risk_level": "HIGH",
+        "escalated": false,
+        "resolved": false,
+        "timeline_entries": 5
+      }
+    },
+    {
+      "frame": 335,
+      "timestamp_sec": 30.629,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            657.8,
+            77.1
+          ]
+        },
+        {
+          "id": 6,
+          "class": "person",
+          "center": [
+            665.7,
+            50.1
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "HIGH",
+        "score": 0.687,
+        "ttc_sec": 1.3,
+        "distance_px": 28.1,
+        "closing_velocity_px_s": 21.6
+      },
+      "actions_executed": [
+        "visual_warning"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 6,
+        "vehicle_id": 5,
+        "risk_level": "HIGH",
+        "escalated": false,
+        "resolved": false,
+        "timeline_entries": 5
+      }
+    },
+    {
+      "frame": 336,
+      "timestamp_sec": 30.703,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            664.8,
+            78.7
+          ]
+        },
+        {
+          "id": 6,
+          "class": "person",
+          "center": [
+            672.0,
+            51.4
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "MEDIUM",
+        "score": 0.35,
+        "ttc_sec": null,
+        "distance_px": 28.3,
+        "closing_velocity_px_s": -2.1
+      },
+      "actions_executed": [
+        "increase_monitoring"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 6,
+        "vehicle_id": 5,
+        "risk_level": "MEDIUM",
+        "escalated": false,
+        "resolved": false,
+        "timeline_entries": 6
+      }
+    },
+    {
+      "frame": 337,
+      "timestamp_sec": 30.776,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            672.1,
+            79.5
+          ]
+        },
+        {
+          "id": 6,
+          "class": "person",
+          "center": [
+            679.8,
+            50.3
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "MEDIUM",
+        "score": 0.349,
+        "ttc_sec": null,
+        "distance_px": 30.2,
+        "closing_velocity_px_s": -26.7
+      },
+      "actions_executed": [
+        "increase_monitoring"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 6,
+        "vehicle_id": 5,
+        "risk_level": "MEDIUM",
+        "escalated": false,
+        "resolved": false,
+        "timeline_entries": 6
+      }
+    },
+    {
+      "frame": 338,
+      "timestamp_sec": 30.85,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            680.1,
+            79.5
+          ]
+        },
+        {
+          "id": 6,
+          "class": "person",
+          "center": [
+            681.1,
+            56.0
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "CRITICAL",
+        "score": 0.822,
+        "ttc_sec": 0.29,
+        "distance_px": 23.5,
+        "closing_velocity_px_s": 81.1
+      },
+      "actions_executed": [
+        "visual_warning",
+        "audio_warning",
+        "escalate"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 6,
+        "vehicle_id": 5,
+        "risk_level": "CRITICAL",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 7
+      }
+    },
+    {
+      "frame": 339,
+      "timestamp_sec": 30.925,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            687.0,
+            80.9
+          ]
+        },
+        {
+          "id": 6,
+          "class": "person",
+          "center": [
+            681.1,
+            56.0
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "HIGH",
+        "score": 0.736,
+        "ttc_sec": 0.65,
+        "distance_px": 25.6,
+        "closing_velocity_px_s": 39.2
+      },
+      "actions_executed": [
+        "visual_warning"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 6,
+        "vehicle_id": 5,
+        "risk_level": "HIGH",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 8
+      }
+    },
+    {
+      "frame": 340,
+      "timestamp_sec": 31.0,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            694.0,
+            81.7
+          ]
+        },
+        {
+          "id": 6,
+          "class": "person",
+          "center": [
+            681.1,
+            56.0
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "HIGH",
+        "score": 0.699,
+        "ttc_sec": 1.13,
+        "distance_px": 28.7,
+        "closing_velocity_px_s": 25.5
+      },
+      "actions_executed": [
+        "visual_warning"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 6,
+        "vehicle_id": 5,
+        "risk_level": "HIGH",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 8
+      }
+    },
+    {
+      "frame": 341,
+      "timestamp_sec": 31.075,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            700.4,
+            83.3
+          ]
+        },
+        {
+          "id": 6,
+          "class": "person",
+          "center": [
+            681.1,
+            56.0
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "MEDIUM",
+        "score": 0.439,
+        "ttc_sec": 7.19,
+        "distance_px": 33.4,
+        "closing_velocity_px_s": 4.6
+      },
+      "actions_executed": [
+        "increase_monitoring"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 6,
+        "vehicle_id": 5,
+        "risk_level": "MEDIUM",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 9
+      }
+    },
+    {
+      "frame": 342,
+      "timestamp_sec": 31.148,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            708.1,
+            83.1
+          ]
+        },
+        {
+          "id": 6,
+          "class": "person",
+          "center": [
+            681.1,
+            56.0
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "MEDIUM",
+        "score": 0.327,
+        "ttc_sec": null,
+        "distance_px": 38.2,
+        "closing_velocity_px_s": -4.3
+      },
+      "actions_executed": [
+        "increase_monitoring"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 6,
+        "vehicle_id": 5,
+        "risk_level": "MEDIUM",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 9
+      }
+    },
+    {
+      "frame": 343,
+      "timestamp_sec": 31.226,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            713.5,
+            83.5
+          ]
+        },
+        {
+          "id": 6,
+          "class": "person",
+          "center": [
+            681.1,
+            56.0
+          ]
+        },
+        {
+          "id": 7,
+          "class": "person",
+          "center": [
+            720.3,
+            57.7
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "HIGH",
+        "score": 0.535,
+        "ttc_sec": 4.73,
+        "distance_px": 26.7,
+        "closing_velocity_px_s": 5.6
+      },
+      "actions_executed": [
+        "visual_warning",
+        "increase_monitoring"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 6,
+        "vehicle_id": 5,
+        "risk_level": "MEDIUM",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 11
+      }
+    },
+    {
+      "frame": 344,
+      "timestamp_sec": 31.302,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            720.8,
+            83.9
+          ]
+        },
+        {
+          "id": 6,
+          "class": "person",
+          "center": [
+            681.1,
+            56.0
+          ]
+        },
+        {
+          "id": 7,
+          "class": "person",
+          "center": [
+            725.2,
+            58.4
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "HIGH",
+        "score": 0.603,
+        "ttc_sec": 2.77,
+        "distance_px": 25.9,
+        "closing_velocity_px_s": 9.3
+      },
+      "actions_executed": [
+        "visual_warning",
+        "increase_monitoring"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 6,
+        "vehicle_id": 5,
+        "risk_level": "MEDIUM",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 13
+      }
+    },
+    {
+      "frame": 345,
+      "timestamp_sec": 31.377,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            728.2,
+            84.0
+          ]
+        },
+        {
+          "id": 6,
+          "class": "person",
+          "center": [
+            681.1,
+            56.0
+          ]
+        },
+        {
+          "id": 7,
+          "class": "person",
+          "center": [
+            733.9,
+            56.5
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "MEDIUM",
+        "score": 0.35,
+        "ttc_sec": null,
+        "distance_px": 28.1,
+        "closing_velocity_px_s": -29.9
+      },
+      "actions_executed": [
+        "increase_monitoring",
+        "increase_monitoring"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 6,
+        "vehicle_id": 5,
+        "risk_level": "MEDIUM",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 13
+      }
+    },
+    {
+      "frame": 346,
+      "timestamp_sec": 31.451,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            732.0,
+            84.8
+          ]
+        },
+        {
+          "id": 6,
+          "class": "person",
+          "center": [
+            681.1,
+            56.0
+          ]
+        },
+        {
+          "id": 7,
+          "class": "person",
+          "center": [
+            741.1,
+            62.9
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "CRITICAL",
+        "score": 0.78,
+        "ttc_sec": 0.45,
+        "distance_px": 23.7,
+        "closing_velocity_px_s": 53.2
+      },
+      "actions_executed": [
+        "visual_warning",
+        "audio_warning",
+        "escalate",
+        "increase_monitoring"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 6,
+        "vehicle_id": 5,
+        "risk_level": "MEDIUM",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 15
+      }
+    },
+    {
+      "frame": 347,
+      "timestamp_sec": 31.523,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            735.5,
+            85.7
+          ]
+        },
+        {
+          "id": 6,
+          "class": "person",
+          "center": [
+            681.1,
+            56.0
+          ]
+        },
+        {
+          "id": 7,
+          "class": "person",
+          "center": [
+            741.1,
+            62.9
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "CRITICAL",
+        "score": 0.792,
+        "ttc_sec": 0.38,
+        "distance_px": 23.5,
+        "closing_velocity_px_s": 61.3
+      },
+      "actions_executed": [
+        "visual_warning",
+        "audio_warning",
+        "escalate",
+        "increase_monitoring"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 6,
+        "vehicle_id": 5,
+        "risk_level": "MEDIUM",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 17
+      }
+    },
+    {
+      "frame": 348,
+      "timestamp_sec": 31.597,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            739.3,
+            87.0
+          ]
+        },
+        {
+          "id": 6,
+          "class": "person",
+          "center": [
+            681.1,
+            56.0
+          ]
+        },
+        {
+          "id": 7,
+          "class": "person",
+          "center": [
+            741.1,
+            62.9
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "CRITICAL",
+        "score": 0.798,
+        "ttc_sec": 0.37,
+        "distance_px": 24.2,
+        "closing_velocity_px_s": 65.6
+      },
+      "actions_executed": [
+        "visual_warning",
+        "audio_warning",
+        "escalate"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 6,
+        "vehicle_id": 5,
+        "risk_level": "LOW",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 19
+      }
+    },
+    {
+      "frame": 349,
+      "timestamp_sec": 31.672,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            743.2,
+            85.9
+          ]
+        },
+        {
+          "id": 6,
+          "class": "person",
+          "center": [
+            681.1,
+            56.0
+          ]
+        },
+        {
+          "id": 7,
+          "class": "person",
+          "center": [
+            741.1,
+            62.9
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "CRITICAL",
+        "score": 0.85,
+        "ttc_sec": 0.22,
+        "distance_px": 23.1,
+        "closing_velocity_px_s": 104.7
+      },
+      "actions_executed": [
+        "visual_warning",
+        "audio_warning",
+        "escalate",
+        "increase_monitoring"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 6,
+        "vehicle_id": 5,
+        "risk_level": "MEDIUM",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 21
+      }
+    },
+    {
+      "frame": 350,
+      "timestamp_sec": 31.743,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            743.2,
+            85.9
+          ]
+        },
+        {
+          "id": 6,
+          "class": "person",
+          "center": [
+            681.1,
+            56.0
+          ]
+        },
+        {
+          "id": 7,
+          "class": "person",
+          "center": [
+            741.1,
+            62.9
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "CRITICAL",
+        "score": 0.85,
+        "ttc_sec": 0.22,
+        "distance_px": 23.1,
+        "closing_velocity_px_s": 104.7
+      },
+      "actions_executed": [
+        "visual_warning",
+        "audio_warning",
+        "escalate",
+        "increase_monitoring"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 6,
+        "vehicle_id": 5,
+        "risk_level": "MEDIUM",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 23
+      }
+    },
+    {
+      "frame": 351,
+      "timestamp_sec": 31.81,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            743.2,
+            85.9
+          ]
+        },
+        {
+          "id": 6,
+          "class": "person",
+          "center": [
+            681.1,
+            56.0
+          ]
+        },
+        {
+          "id": 7,
+          "class": "person",
+          "center": [
+            741.1,
+            62.9
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "CRITICAL",
+        "score": 0.85,
+        "ttc_sec": 0.22,
+        "distance_px": 23.1,
+        "closing_velocity_px_s": 104.7
+      },
+      "actions_executed": [
+        "visual_warning",
+        "audio_warning",
+        "escalate",
+        "increase_monitoring"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 6,
+        "vehicle_id": 5,
+        "risk_level": "MEDIUM",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 25
+      }
+    },
+    {
+      "frame": 352,
+      "timestamp_sec": 31.886,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            743.2,
+            85.9
+          ]
+        },
+        {
+          "id": 6,
+          "class": "person",
+          "center": [
+            681.1,
+            56.0
+          ]
+        },
+        {
+          "id": 7,
+          "class": "person",
+          "center": [
+            741.1,
+            62.9
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "CRITICAL",
+        "score": 0.85,
+        "ttc_sec": 0.22,
+        "distance_px": 23.1,
+        "closing_velocity_px_s": 104.7
+      },
+      "actions_executed": [
+        "visual_warning",
+        "audio_warning",
+        "escalate",
+        "increase_monitoring"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 6,
+        "vehicle_id": 5,
+        "risk_level": "MEDIUM",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 27
+      }
+    },
+    {
+      "frame": 353,
+      "timestamp_sec": 31.96,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            743.2,
+            85.9
+          ]
+        },
+        {
+          "id": 6,
+          "class": "person",
+          "center": [
+            681.1,
+            56.0
+          ]
+        },
+        {
+          "id": 7,
+          "class": "person",
+          "center": [
+            741.1,
+            62.9
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "CRITICAL",
+        "score": 0.85,
+        "ttc_sec": 0.22,
+        "distance_px": 23.1,
+        "closing_velocity_px_s": 104.7
+      },
+      "actions_executed": [
+        "visual_warning",
+        "audio_warning",
+        "escalate",
+        "increase_monitoring"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 6,
+        "vehicle_id": 5,
+        "risk_level": "MEDIUM",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 29
+      }
+    },
+    {
+      "frame": 354,
+      "timestamp_sec": 32.034,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            743.2,
+            85.9
+          ]
+        },
+        {
+          "id": 6,
+          "class": "person",
+          "center": [
+            681.1,
+            56.0
+          ]
+        },
+        {
+          "id": 7,
+          "class": "person",
+          "center": [
+            741.1,
+            62.9
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "CRITICAL",
+        "score": 0.85,
+        "ttc_sec": 0.22,
+        "distance_px": 23.1,
+        "closing_velocity_px_s": 104.7
+      },
+      "actions_executed": [
+        "visual_warning",
+        "audio_warning",
+        "escalate",
+        "increase_monitoring"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 6,
+        "vehicle_id": 5,
+        "risk_level": "MEDIUM",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 31
+      }
+    },
+    {
+      "frame": 355,
+      "timestamp_sec": 32.108,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            743.2,
+            85.9
+          ]
+        },
+        {
+          "id": 6,
+          "class": "person",
+          "center": [
+            681.1,
+            56.0
+          ]
+        },
+        {
+          "id": 7,
+          "class": "person",
+          "center": [
+            741.1,
+            62.9
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "CRITICAL",
+        "score": 0.85,
+        "ttc_sec": 0.22,
+        "distance_px": 23.1,
+        "closing_velocity_px_s": 104.7
+      },
+      "actions_executed": [
+        "visual_warning",
+        "audio_warning",
+        "escalate",
+        "increase_monitoring"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 6,
+        "vehicle_id": 5,
+        "risk_level": "MEDIUM",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 33
+      }
+    },
+    {
+      "frame": 356,
+      "timestamp_sec": 32.181,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            743.2,
+            85.9
+          ]
+        },
+        {
+          "id": 6,
+          "class": "person",
+          "center": [
+            681.1,
+            56.0
+          ]
+        },
+        {
+          "id": 7,
+          "class": "person",
+          "center": [
+            741.1,
+            62.9
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "CRITICAL",
+        "score": 0.85,
+        "ttc_sec": 0.22,
+        "distance_px": 23.1,
+        "closing_velocity_px_s": 104.7
+      },
+      "actions_executed": [
+        "visual_warning",
+        "audio_warning",
+        "escalate",
+        "increase_monitoring"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 6,
+        "vehicle_id": 5,
+        "risk_level": "MEDIUM",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 35
+      }
+    },
+    {
+      "frame": 357,
+      "timestamp_sec": 32.259,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            743.2,
+            85.9
+          ]
+        },
+        {
+          "id": 6,
+          "class": "person",
+          "center": [
+            681.1,
+            56.0
+          ]
+        },
+        {
+          "id": 7,
+          "class": "person",
+          "center": [
+            741.1,
+            62.9
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "CRITICAL",
+        "score": 0.85,
+        "ttc_sec": 0.22,
+        "distance_px": 23.1,
+        "closing_velocity_px_s": 104.7
+      },
+      "actions_executed": [
+        "visual_warning",
+        "audio_warning",
+        "escalate",
+        "increase_monitoring"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 6,
+        "vehicle_id": 5,
+        "risk_level": "MEDIUM",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 37
+      }
+    },
+    {
+      "frame": 358,
+      "timestamp_sec": 32.334,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            743.2,
+            85.9
+          ]
+        },
+        {
+          "id": 6,
+          "class": "person",
+          "center": [
+            681.1,
+            56.0
+          ]
+        },
+        {
+          "id": 7,
+          "class": "person",
+          "center": [
+            741.1,
+            62.9
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "CRITICAL",
+        "score": 0.85,
+        "ttc_sec": 0.22,
+        "distance_px": 23.1,
+        "closing_velocity_px_s": 104.7
+      },
+      "actions_executed": [
+        "visual_warning",
+        "audio_warning",
+        "escalate",
+        "increase_monitoring"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 6,
+        "vehicle_id": 5,
+        "risk_level": "MEDIUM",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 39
+      }
+    },
+    {
+      "frame": 359,
+      "timestamp_sec": 32.407,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            743.2,
+            85.9
+          ]
+        },
+        {
+          "id": 6,
+          "class": "person",
+          "center": [
+            681.1,
+            56.0
+          ]
+        },
+        {
+          "id": 7,
+          "class": "person",
+          "center": [
+            741.1,
+            62.9
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "CRITICAL",
+        "score": 0.85,
+        "ttc_sec": 0.22,
+        "distance_px": 23.1,
+        "closing_velocity_px_s": 104.7
+      },
+      "actions_executed": [
+        "visual_warning",
+        "audio_warning",
+        "escalate",
+        "increase_monitoring"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 6,
+        "vehicle_id": 5,
+        "risk_level": "MEDIUM",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 41
+      }
+    },
+    {
+      "frame": 360,
+      "timestamp_sec": 32.479,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            743.2,
+            85.9
+          ]
+        },
+        {
+          "id": 6,
+          "class": "person",
+          "center": [
+            681.1,
+            56.0
+          ]
+        },
+        {
+          "id": 7,
+          "class": "person",
+          "center": [
+            741.1,
+            62.9
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "CRITICAL",
+        "score": 0.85,
+        "ttc_sec": 0.22,
+        "distance_px": 23.1,
+        "closing_velocity_px_s": 104.7
+      },
+      "actions_executed": [
+        "visual_warning",
+        "audio_warning",
+        "escalate",
+        "increase_monitoring"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 6,
+        "vehicle_id": 5,
+        "risk_level": "MEDIUM",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 43
+      }
+    },
+    {
+      "frame": 361,
+      "timestamp_sec": 32.553,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            743.2,
+            85.9
+          ]
+        },
+        {
+          "id": 6,
+          "class": "person",
+          "center": [
+            681.1,
+            56.0
+          ]
+        },
+        {
+          "id": 7,
+          "class": "person",
+          "center": [
+            741.1,
+            62.9
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "CRITICAL",
+        "score": 0.85,
+        "ttc_sec": 0.22,
+        "distance_px": 23.1,
+        "closing_velocity_px_s": 104.7
+      },
+      "actions_executed": [
+        "visual_warning",
+        "audio_warning",
+        "escalate",
+        "increase_monitoring"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 6,
+        "vehicle_id": 5,
+        "risk_level": "MEDIUM",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 45
+      }
+    },
+    {
+      "frame": 362,
+      "timestamp_sec": 32.628,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            743.2,
+            85.9
+          ]
+        },
+        {
+          "id": 6,
+          "class": "person",
+          "center": [
+            681.1,
+            56.0
+          ]
+        },
+        {
+          "id": 7,
+          "class": "person",
+          "center": [
+            741.1,
+            62.9
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "CRITICAL",
+        "score": 0.85,
+        "ttc_sec": 0.22,
+        "distance_px": 23.1,
+        "closing_velocity_px_s": 104.7
+      },
+      "actions_executed": [
+        "visual_warning",
+        "audio_warning",
+        "escalate",
+        "increase_monitoring"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 6,
+        "vehicle_id": 5,
+        "risk_level": "MEDIUM",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 47
+      }
+    },
+    {
+      "frame": 363,
+      "timestamp_sec": 32.702,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            743.2,
+            85.9
+          ]
+        },
+        {
+          "id": 6,
+          "class": "person",
+          "center": [
+            681.1,
+            56.0
+          ]
+        },
+        {
+          "id": 7,
+          "class": "person",
+          "center": [
+            741.1,
+            62.9
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "CRITICAL",
+        "score": 0.85,
+        "ttc_sec": 0.22,
+        "distance_px": 23.1,
+        "closing_velocity_px_s": 104.7
+      },
+      "actions_executed": [
+        "visual_warning",
+        "audio_warning",
+        "escalate",
+        "increase_monitoring"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 6,
+        "vehicle_id": 5,
+        "risk_level": "MEDIUM",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 49
+      }
+    },
+    {
+      "frame": 364,
+      "timestamp_sec": 32.776,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            743.2,
+            85.9
+          ]
+        },
+        {
+          "id": 6,
+          "class": "person",
+          "center": [
+            681.1,
+            56.0
+          ]
+        },
+        {
+          "id": 7,
+          "class": "person",
+          "center": [
+            741.1,
+            62.9
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "CRITICAL",
+        "score": 0.85,
+        "ttc_sec": 0.22,
+        "distance_px": 23.1,
+        "closing_velocity_px_s": 104.7
+      },
+      "actions_executed": [
+        "visual_warning",
+        "audio_warning",
+        "escalate",
+        "increase_monitoring"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 6,
+        "vehicle_id": 5,
+        "risk_level": "MEDIUM",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 51
+      }
+    },
+    {
+      "frame": 365,
+      "timestamp_sec": 32.85,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            743.2,
+            85.9
+          ]
+        },
+        {
+          "id": 6,
+          "class": "person",
+          "center": [
+            681.1,
+            56.0
+          ]
+        },
+        {
+          "id": 7,
+          "class": "person",
+          "center": [
+            741.1,
+            62.9
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "CRITICAL",
+        "score": 0.85,
+        "ttc_sec": 0.22,
+        "distance_px": 23.1,
+        "closing_velocity_px_s": 104.7
+      },
+      "actions_executed": [
+        "visual_warning",
+        "audio_warning",
+        "escalate",
+        "increase_monitoring"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 6,
+        "vehicle_id": 5,
+        "risk_level": "MEDIUM",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 53
+      }
+    },
+    {
+      "frame": 366,
+      "timestamp_sec": 32.924,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            743.2,
+            85.9
+          ]
+        },
+        {
+          "id": 6,
+          "class": "person",
+          "center": [
+            681.1,
+            56.0
+          ]
+        },
+        {
+          "id": 7,
+          "class": "person",
+          "center": [
+            741.1,
+            62.9
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "CRITICAL",
+        "score": 0.85,
+        "ttc_sec": 0.22,
+        "distance_px": 23.1,
+        "closing_velocity_px_s": 104.7
+      },
+      "actions_executed": [
+        "visual_warning",
+        "audio_warning",
+        "escalate",
+        "increase_monitoring"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 6,
+        "vehicle_id": 5,
+        "risk_level": "MEDIUM",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 55
+      }
+    },
+    {
+      "frame": 367,
+      "timestamp_sec": 32.999,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            743.2,
+            85.9
+          ]
+        },
+        {
+          "id": 6,
+          "class": "person",
+          "center": [
+            681.1,
+            56.0
+          ]
+        },
+        {
+          "id": 7,
+          "class": "person",
+          "center": [
+            741.1,
+            62.9
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "CRITICAL",
+        "score": 0.85,
+        "ttc_sec": 0.22,
+        "distance_px": 23.1,
+        "closing_velocity_px_s": 104.7
+      },
+      "actions_executed": [
+        "visual_warning",
+        "audio_warning",
+        "escalate",
+        "increase_monitoring"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 6,
+        "vehicle_id": 5,
+        "risk_level": "MEDIUM",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 57
+      }
+    },
+    {
+      "frame": 368,
+      "timestamp_sec": 33.073,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            743.2,
+            85.9
+          ]
+        },
+        {
+          "id": 6,
+          "class": "person",
+          "center": [
+            681.1,
+            56.0
+          ]
+        },
+        {
+          "id": 7,
+          "class": "person",
+          "center": [
+            741.1,
+            62.9
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "CRITICAL",
+        "score": 0.85,
+        "ttc_sec": 0.22,
+        "distance_px": 23.1,
+        "closing_velocity_px_s": 104.7
+      },
+      "actions_executed": [
+        "visual_warning",
+        "audio_warning",
+        "escalate",
+        "increase_monitoring"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 6,
+        "vehicle_id": 5,
+        "risk_level": "MEDIUM",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 59
+      }
+    },
+    {
+      "frame": 369,
+      "timestamp_sec": 33.147,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            743.2,
+            85.9
+          ]
+        },
+        {
+          "id": 7,
+          "class": "person",
+          "center": [
+            741.1,
+            62.9
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "CRITICAL",
+        "score": 0.85,
+        "ttc_sec": 0.22,
+        "distance_px": 23.1,
+        "closing_velocity_px_s": 104.7
+      },
+      "actions_executed": [
+        "visual_warning",
+        "audio_warning",
+        "escalate"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 7,
+        "vehicle_id": 5,
+        "risk_level": "CRITICAL",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 61
+      }
+    },
+    {
+      "frame": 370,
+      "timestamp_sec": 33.224,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            743.2,
+            85.9
+          ]
+        },
+        {
+          "id": 7,
+          "class": "person",
+          "center": [
+            741.1,
+            62.9
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "CRITICAL",
+        "score": 0.85,
+        "ttc_sec": 0.22,
+        "distance_px": 23.1,
+        "closing_velocity_px_s": 104.7
+      },
+      "actions_executed": [
+        "visual_warning",
+        "audio_warning",
+        "escalate"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 7,
+        "vehicle_id": 5,
+        "risk_level": "CRITICAL",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 61
+      }
+    },
+    {
+      "frame": 371,
+      "timestamp_sec": 33.301,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            743.2,
+            85.9
+          ]
+        },
+        {
+          "id": 7,
+          "class": "person",
+          "center": [
+            741.1,
+            62.9
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "CRITICAL",
+        "score": 0.85,
+        "ttc_sec": 0.22,
+        "distance_px": 23.1,
+        "closing_velocity_px_s": 104.7
+      },
+      "actions_executed": [
+        "visual_warning",
+        "audio_warning",
+        "escalate"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 7,
+        "vehicle_id": 5,
+        "risk_level": "CRITICAL",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 61
+      }
+    },
+    {
+      "frame": 372,
+      "timestamp_sec": 33.378,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            743.2,
+            85.9
+          ]
+        },
+        {
+          "id": 7,
+          "class": "person",
+          "center": [
+            741.1,
+            62.9
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "CRITICAL",
+        "score": 0.85,
+        "ttc_sec": 0.22,
+        "distance_px": 23.1,
+        "closing_velocity_px_s": 104.7
+      },
+      "actions_executed": [
+        "visual_warning",
+        "audio_warning",
+        "escalate"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 7,
+        "vehicle_id": 5,
+        "risk_level": "CRITICAL",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 61
+      }
+    },
+    {
+      "frame": 373,
+      "timestamp_sec": 33.455,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            743.2,
+            85.9
+          ]
+        },
+        {
+          "id": 7,
+          "class": "person",
+          "center": [
+            741.1,
+            62.9
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "CRITICAL",
+        "score": 0.85,
+        "ttc_sec": 0.22,
+        "distance_px": 23.1,
+        "closing_velocity_px_s": 104.7
+      },
+      "actions_executed": [
+        "visual_warning",
+        "audio_warning",
+        "escalate"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 7,
+        "vehicle_id": 5,
+        "risk_level": "CRITICAL",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 61
+      }
+    },
+    {
+      "frame": 374,
+      "timestamp_sec": 33.532,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            743.2,
+            85.9
+          ]
+        },
+        {
+          "id": 7,
+          "class": "person",
+          "center": [
+            741.1,
+            62.9
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "CRITICAL",
+        "score": 0.85,
+        "ttc_sec": 0.22,
+        "distance_px": 23.1,
+        "closing_velocity_px_s": 104.7
+      },
+      "actions_executed": [
+        "visual_warning",
+        "audio_warning",
+        "escalate"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 7,
+        "vehicle_id": 5,
+        "risk_level": "CRITICAL",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 61
+      }
+    },
+    {
+      "frame": 375,
+      "timestamp_sec": 33.608,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            743.2,
+            85.9
+          ]
+        },
+        {
+          "id": 7,
+          "class": "person",
+          "center": [
+            741.1,
+            62.9
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "CRITICAL",
+        "score": 0.85,
+        "ttc_sec": 0.22,
+        "distance_px": 23.1,
+        "closing_velocity_px_s": 104.7
+      },
+      "actions_executed": [
+        "visual_warning",
+        "audio_warning",
+        "escalate"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 7,
+        "vehicle_id": 5,
+        "risk_level": "CRITICAL",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 61
+      }
+    },
+    {
+      "frame": 376,
+      "timestamp_sec": 33.684,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            743.2,
+            85.9
+          ]
+        },
+        {
+          "id": 7,
+          "class": "person",
+          "center": [
+            741.1,
+            62.9
+          ]
+        }
+      ],
+      "top_risk": {
+        "level": "CRITICAL",
+        "score": 0.85,
+        "ttc_sec": 0.22,
+        "distance_px": 23.1,
+        "closing_velocity_px_s": 104.7
+      },
+      "actions_executed": [
+        "visual_warning",
+        "audio_warning",
+        "escalate"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 7,
+        "vehicle_id": 5,
+        "risk_level": "CRITICAL",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 61
+      }
+    },
+    {
+      "frame": 377,
+      "timestamp_sec": 33.76,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            743.2,
+            85.9
+          ]
+        }
+      ],
+      "top_risk": null,
+      "actions_executed": [],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 7,
+        "vehicle_id": 5,
+        "risk_level": "CRITICAL",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 61
+      }
+    },
+    {
+      "frame": 378,
+      "timestamp_sec": 33.835,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            743.2,
+            85.9
+          ]
+        }
+      ],
+      "top_risk": null,
+      "actions_executed": [],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 7,
+        "vehicle_id": 5,
+        "risk_level": "CRITICAL",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 61
+      }
+    },
+    {
+      "frame": 379,
+      "timestamp_sec": 33.911,
+      "tracked_entities": [
+        {
+          "id": 5,
+          "class": "bicycle",
+          "center": [
+            743.2,
+            85.9
+          ]
+        }
+      ],
+      "top_risk": null,
+      "actions_executed": [],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 7,
+        "vehicle_id": 5,
+        "risk_level": "CRITICAL",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 61
+      }
+    },
+    {
+      "frame": 380,
+      "timestamp_sec": 33.985,
+      "tracked_entities": [],
+      "top_risk": null,
+      "actions_executed": [],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 7,
+        "vehicle_id": 5,
+        "risk_level": "CRITICAL",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 61
+      }
+    },
+    {
+      "frame": 381,
+      "timestamp_sec": 34.06,
+      "tracked_entities": [],
+      "top_risk": null,
+      "actions_executed": [],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 7,
+        "vehicle_id": 5,
+        "risk_level": "CRITICAL",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 61
+      }
+    },
+    {
+      "frame": 382,
+      "timestamp_sec": 34.134,
+      "tracked_entities": [],
+      "top_risk": null,
+      "actions_executed": [],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 7,
+        "vehicle_id": 5,
+        "risk_level": "CRITICAL",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 61
+      }
+    },
+    {
+      "frame": 383,
+      "timestamp_sec": 34.21,
+      "tracked_entities": [],
+      "top_risk": null,
+      "actions_executed": [],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 7,
+        "vehicle_id": 5,
+        "risk_level": "CRITICAL",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 61
+      }
+    },
+    {
+      "frame": 384,
+      "timestamp_sec": 34.286,
+      "tracked_entities": [],
+      "top_risk": null,
+      "actions_executed": [],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 7,
+        "vehicle_id": 5,
+        "risk_level": "CRITICAL",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 61
+      }
+    },
+    {
+      "frame": 385,
+      "timestamp_sec": 34.362,
+      "tracked_entities": [],
+      "top_risk": null,
+      "actions_executed": [],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 7,
+        "vehicle_id": 5,
+        "risk_level": "CRITICAL",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 61
+      }
+    },
+    {
+      "frame": 386,
+      "timestamp_sec": 34.436,
+      "tracked_entities": [],
+      "top_risk": null,
+      "actions_executed": [],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 7,
+        "vehicle_id": 5,
+        "risk_level": "CRITICAL",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 61
+      }
+    },
+    {
+      "frame": 387,
+      "timestamp_sec": 34.51,
+      "tracked_entities": [],
+      "top_risk": null,
+      "actions_executed": [],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 7,
+        "vehicle_id": 5,
+        "risk_level": "CRITICAL",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 61
+      }
+    },
+    {
+      "frame": 388,
+      "timestamp_sec": 34.584,
+      "tracked_entities": [],
+      "top_risk": null,
+      "actions_executed": [],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 7,
+        "vehicle_id": 5,
+        "risk_level": "CRITICAL",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 61
+      }
+    },
+    {
+      "frame": 389,
+      "timestamp_sec": 34.658,
+      "tracked_entities": [],
+      "top_risk": null,
+      "actions_executed": [],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 7,
+        "vehicle_id": 5,
+        "risk_level": "CRITICAL",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 61
+      }
+    },
+    {
+      "frame": 390,
+      "timestamp_sec": 34.731,
+      "tracked_entities": [],
+      "top_risk": null,
+      "actions_executed": [],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 7,
+        "vehicle_id": 5,
+        "risk_level": "CRITICAL",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 61
+      }
+    },
+    {
+      "frame": 391,
+      "timestamp_sec": 34.804,
+      "tracked_entities": [],
+      "top_risk": null,
+      "actions_executed": [],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 7,
+        "vehicle_id": 5,
+        "risk_level": "CRITICAL",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 61
+      }
+    },
+    {
+      "frame": 392,
+      "timestamp_sec": 34.878,
+      "tracked_entities": [],
+      "top_risk": null,
+      "actions_executed": [],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 7,
+        "vehicle_id": 5,
+        "risk_level": "CRITICAL",
+        "escalated": true,
+        "resolved": false,
+        "timeline_entries": 61
+      }
+    },
+    {
+      "frame": 393,
+      "timestamp_sec": 34.955,
+      "tracked_entities": [],
+      "top_risk": null,
+      "actions_executed": [
+        "resolve"
+      ],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 7,
+        "vehicle_id": 5,
+        "risk_level": "CRITICAL",
+        "escalated": true,
+        "resolved": true,
+        "timeline_entries": 62
+      }
+    },
+    {
+      "frame": 394,
+      "timestamp_sec": 35.033,
+      "tracked_entities": [],
+      "top_risk": null,
+      "actions_executed": [],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 7,
+        "vehicle_id": 5,
+        "risk_level": "CRITICAL",
+        "escalated": true,
+        "resolved": true,
+        "timeline_entries": 62
+      }
+    },
+    {
+      "frame": 395,
+      "timestamp_sec": 35.112,
+      "tracked_entities": [],
+      "top_risk": null,
+      "actions_executed": [],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 7,
+        "vehicle_id": 5,
+        "risk_level": "CRITICAL",
+        "escalated": true,
+        "resolved": true,
+        "timeline_entries": 62
+      }
+    },
+    {
+      "frame": 396,
+      "timestamp_sec": 35.19,
+      "tracked_entities": [],
+      "top_risk": null,
+      "actions_executed": [],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 7,
+        "vehicle_id": 5,
+        "risk_level": "CRITICAL",
+        "escalated": true,
+        "resolved": true,
+        "timeline_entries": 62
+      }
+    },
+    {
+      "frame": 397,
+      "timestamp_sec": 35.271,
+      "tracked_entities": [],
+      "top_risk": null,
+      "actions_executed": [],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 7,
+        "vehicle_id": 5,
+        "risk_level": "CRITICAL",
+        "escalated": true,
+        "resolved": true,
+        "timeline_entries": 62
+      }
+    },
+    {
+      "frame": 398,
+      "timestamp_sec": 35.351,
+      "tracked_entities": [],
+      "top_risk": null,
+      "actions_executed": [],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 7,
+        "vehicle_id": 5,
+        "risk_level": "CRITICAL",
+        "escalated": true,
+        "resolved": true,
+        "timeline_entries": 62
+      }
+    },
+    {
+      "frame": 399,
+      "timestamp_sec": 35.429,
+      "tracked_entities": [],
+      "top_risk": null,
+      "actions_executed": [],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 7,
+        "vehicle_id": 5,
+        "risk_level": "CRITICAL",
+        "escalated": true,
+        "resolved": true,
+        "timeline_entries": 62
+      }
+    },
+    {
+      "frame": 400,
+      "timestamp_sec": 35.508,
+      "tracked_entities": [],
+      "top_risk": null,
+      "actions_executed": [],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 7,
+        "vehicle_id": 5,
+        "risk_level": "CRITICAL",
+        "escalated": true,
+        "resolved": true,
+        "timeline_entries": 62
+      }
+    },
+    {
+      "frame": 401,
+      "timestamp_sec": 35.585,
+      "tracked_entities": [],
+      "top_risk": null,
+      "actions_executed": [],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 7,
+        "vehicle_id": 5,
+        "risk_level": "CRITICAL",
+        "escalated": true,
+        "resolved": true,
+        "timeline_entries": 62
+      }
+    },
+    {
+      "frame": 402,
+      "timestamp_sec": 35.663,
+      "tracked_entities": [],
+      "top_risk": null,
+      "actions_executed": [],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 7,
+        "vehicle_id": 5,
+        "risk_level": "CRITICAL",
+        "escalated": true,
+        "resolved": true,
+        "timeline_entries": 62
+      }
+    },
+    {
+      "frame": 403,
+      "timestamp_sec": 35.742,
+      "tracked_entities": [],
+      "top_risk": null,
+      "actions_executed": [],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 7,
+        "vehicle_id": 5,
+        "risk_level": "CRITICAL",
+        "escalated": true,
+        "resolved": true,
+        "timeline_entries": 62
+      }
+    },
+    {
+      "frame": 404,
+      "timestamp_sec": 35.821,
+      "tracked_entities": [],
+      "top_risk": null,
+      "actions_executed": [],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 7,
+        "vehicle_id": 5,
+        "risk_level": "CRITICAL",
+        "escalated": true,
+        "resolved": true,
+        "timeline_entries": 62
+      }
+    },
+    {
+      "frame": 405,
+      "timestamp_sec": 35.897,
+      "tracked_entities": [],
+      "top_risk": null,
+      "actions_executed": [],
+      "active_incident": {
+        "event_id": "SV-0001",
+        "person_id": 7,
+        "vehicle_id": 5,
+        "risk_level": "CRITICAL",
+        "escalated": true,
+        "resolved": true,
+        "timeline_entries": 62
+      }
+    }
+  ]
+}

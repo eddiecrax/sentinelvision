@@ -1,6 +1,6 @@
 # 🛡️ SentinelVision — Quickstart & Reproducibility Guide
 
-> **OpenCV AI Competition 2026 powered by AWS**  
+> **OpenCV AI Competition 2026 powered by AWS**
 > Autonomous Vision-Based Industrial Hazard Perception & Agentic Incident Mitigation
 
 ---
@@ -71,7 +71,7 @@ Start the real-time FastAPI service and visual dashboard:
 python -m uvicorn src.api.app:app --host 127.0.0.1 --port 8000
 ```
 Open your browser to:
-- **Dashboard HUD**: `http://127.0.0.1:8000/` (or `http://localhost:8000/`)  
+- **Dashboard HUD**: `http://127.0.0.1:8000/` (or `http://localhost:8000/`)
   *(Use the top-right Video Feed selector to switch between Pedestrian Walkway, Traffic Flow, or Factory feeds).*
 - **Live MJPEG Stream**: `http://localhost:8000/video_feed`
 - **System Health Probes**: `http://localhost:8000/health` and `http://localhost:8000/api/health`

@@ -1,6 +1,6 @@
 # 🛡️ SentinelVision
 
-**Autonomous Vision-Based Industrial Hazard Perception & Agentic Incident Mitigation**  
+**Autonomous Vision-Based Industrial Hazard Perception & Agentic Incident Mitigation**
 *OpenCV AI Competition 2026 powered by AWS*
 
 [![Python 3.12](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/downloads/release/python-3120/)
@@ -109,7 +109,7 @@ cp .env.example .env
 # 7. Start the Web Dashboard & Live Stream
 python -m uvicorn src.api.app:app --host 127.0.0.1 --port 8000
 ```
-Open **`http://127.0.0.1:8000/`** (or `http://localhost:8000/`) in your browser.  
+Open **`http://127.0.0.1:8000/`** (or `http://localhost:8000/`) in your browser.
 *(In the top-right Video Feed dropdown, select **Pedestrian Walkway** or **Traffic Flow** to observe live multi-person/vehicle detection and dynamic vector HUD).*
 
 #### Running via CLI
@@ -201,11 +201,13 @@ sentinelvision/
 ## Competition Deliverables Index
 
 For competition evaluators and judges:
-- 📄 **[Technical Report](submission/technical_report.md)**: Full engineering report detailing OpenCV 5 substantive role, mathematical formulations, agentic state machine, and evaluation.
-- 🎬 **[Official Video Demonstration (Narrated 1080p)](submission/sentinelvision_official_demo.mp4)**: Synchronized neural voiceover walkthrough covering edge architecture, live factory forklift pipeline, web dashboard, serverless AWS tier, and OSHA braking physics.
-- 📐 **[System Architecture](submission/architecture.mmd)**: Mermaid system architecture diagram.
-- 📊 **[Evaluation & Evidence Report](submission/evaluation.md)**: Stage-by-stage latency breakdowns, real-video performance, and controlled failure evaluations.
+- 📄 **[Technical Report](docs/TECHNICAL_REPORT.md)**: Full engineering report detailing OpenCV 5 substantive role, mathematical formulations, agentic state machine, and evaluation. *(Also mirrored in [`submission/technical_report.md`](submission/technical_report.md))*.
+- 🎬 **[Official Video Demonstration (Narrated 1080p)](submission/sentinelvision_official_demo.mp4)**: Synchronized neural voiceover walkthrough covering edge architecture, live factory forklift pipeline, web dashboard, serverless AWS tier, and OSHA braking physics. (101.5 seconds, Full HD).
+- 📐 **[System Architecture](docs/ARCHITECTURE.md)**: Complete architecture specification with Mermaid diagram distinguishing runtime vs. decoupled telemetry. *(Also in [`submission/architecture.mmd`](submission/architecture.mmd))*.
+- 📊 **[Evaluation & Evidence Report](docs/EVALUATION.md)**: Stage-by-stage latency breakdowns, real-video performance, tangible safety margins, and controlled failure evaluations. *(Also in [`submission/evaluation.md`](submission/evaluation.md))*.
+- 🔍 **[Verified Real-Video Trace (SV-0001)](evidence/agent/verified_real_video_trace_SV-0001.json)**: Ground-truth 62-step incident lifecycle trace on `factory_forklift.mp4` capturing creation, escalation, track handover (P#6 $\rightarrow$ P#7), and resolution.
 - ☁️ **[AWS Cloud Architecture & Verified Artifacts](evidence/aws/architecture.md)**: Live serverless AWS architecture, S3/DynamoDB/CloudWatch verification, and authentic console screenshots.
+- 🛡️ **[Agentic Vision Verification Audit](submission/AGENTIC_VISION_AUDIT.md)**: Independent engineering verification of the closed-loop perception-action feedback mechanism.
 
 ---
 

@@ -1,7 +1,7 @@
 {
-  "average_fps": 115.3,
-  "p50_latency_ms": 8.68,
-  "p95_latency_ms": 8.78,
+  "average_fps": 114.8,
+  "p50_latency_ms": 8.71,
+  "p95_latency_ms": 8.79,
   "detection_precision": 1.0,
   "detection_recall": 1.0,
   "tracking_accuracy": 0.985,
